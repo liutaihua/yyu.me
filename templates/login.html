@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block head %}
+  <title>登录</title>
+{% end %}
+
+{% block body %}
+
+<div id="content">
+  <h1>登录</h1>
+  <div class="article">
+
+<form method="POST">
+  username:<input type="text" name="username"></input>
+  password:<input type="password" name="password"></input>
+<input type="submit" name="submit" value="login"></input>
+</form>
+
+
+{% end %}

@@ -1,7 +1,141 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<rss version="2.0"><channel><title>歪鱼</title><link>http://bb.yyu.me</link><description></description><lastBuildDate>Mon, 11 Mar 2013 11:55:45 GMT</lastBuildDate><generator>PyRSS2Gen-1.1.0</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>&lt;h3&gt;&lt;font color="green"&gt;http&#21327;&#35758;&#30340;&#32531;&#23384;&#22836;&#31574;&#30053;&lt;/font&gt;&lt;/h3&gt;</title><link>http://bb.yyu.me/article/2013-03-11-1-http-cache-header-resolve</link><description>&lt;pre&gt;&lt;code&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4&gt;http&#21327;&#35758;&#30340;&#32531;&#23384;&#22836;&#31574;&#30053;&lt;/h4&gt;
+<rss version="2.0"><channel><title>歪鱼</title><link>http://bb.yyu.me</link><description></description><lastBuildDate>Thu, 14 Mar 2013 08:38:28 GMT</lastBuildDate><generator>PyRSS2Gen-1.1.0</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>&lt;h3&gt;&lt;font color="green"&gt;postgres&#22791;&#20221;&#21644;&#24674;&#22797;&lt;/font&gt;&lt;/h3&gt;</title><link>http://bb.yyu.me/article/2013-03-14-1-postgres-backup-and-restore</link><description>&lt;h4&gt;&#22791;&#20221;:&lt;/h4&gt;
+&lt;p&gt;&#22312;postgres.conf&#37197;&#32622;&#37324;&#25351;&#23450;:&lt;/p&gt;
+&lt;p&gt;archive_command = 'cp "%p" /data/postgresql/arch/"%f"'&lt;/p&gt;
+&lt;p&gt;&#35774;&#23450;:&lt;/p&gt;
+&lt;p&gt;wal_level=archive  &lt;/p&gt;
+&lt;p&gt;&#25163;&#24037;&#22791;&#20221;&#25805;&#20316;&#26041;&#24335;:&lt;/p&gt;
+&lt;p&gt;psql cli&#21518;:&lt;/p&gt;
+&lt;p&gt;select pg_start_backup(' test backup') &lt;/p&gt;
+&lt;p&gt;&#28982;&#21518;:&lt;/p&gt;
+&lt;p&gt;select pg_stop_backup() ,stop&#25191;&#34892;&#26102;,&#23601;&#20250;&#25191;&#34892;archive_command&#20013;&#23450;&#20041;&#30340;backup.&lt;/p&gt;
+&lt;h4&gt;&#20174;wal&#22791;&#20221;&#20013;&#24674;&#22797;:&lt;/h4&gt;
+&lt;p&gt;&#21019;&#24314;&#19968;&#20010;recovery.conf:&lt;/p&gt;
+&lt;p&gt;cp /usr/pgsql-9.2/share/recovery.conf.sample recovery.conf&lt;/p&gt;
+&lt;p&gt;&#22312;recovery.conf&#37197;&#32622;&#20013;&#25351;&#23450;:&lt;/p&gt;
+&lt;p&gt;restore_command = 'cp /data/postgresql/arch/%f %p'&lt;/p&gt;
+&lt;p&gt;&#28982;&#21518;&#37325;&#26032;&#21551;&#21160;postgresql, &#31995;&#32479;&#20250;&#26816;&#26597;&#21040;recovery.conf&#25991;&#20214;&#30340;&#23384;&#22312;,&#24182;&#25191;&#34892;restore, &#28982;&#21518;&#27491;&#24120;&#21551;&#21160;&#21518;,&#20250;&#33258;&#21160;&#23558;recovery.conf&#25991;&#20214;&#21517;&#25913;&#20026;recovery.conf.done&lt;/p&gt;</description><guid isPermaLink="true">http://bb.yyu.me/article/2013-03-14-1-postgres-backup-and-restore</guid><pubDate>Thu, 14 Mar 2013 13:28:00 GMT</pubDate></item><item><title>&lt;h3&gt;&lt;font color="green"&gt;&#20351;&#29992;datetime, &#26500;&#36896;&#19968;&#20010;cron task&#23450;&#26399;&#25191;&#34892;&#32473;&#23450;&#30340;&#20989;&#25968;&#26041;&#27861;&lt;/font&gt;&lt;/h3&gt;</title><link>http://bb.yyu.me/article/2013-03-12-1-cron-task-with-datetime-obj</link><description>&lt;p&gt;&#20351;&#29992;datetime, &#26500;&#36896;&#19968;&#20010;cron task&#23450;&#26399;&#25191;&#34892;&#32473;&#23450;&#30340;&#20989;&#25968;&#26041;&#27861;&lt;/p&gt;
+&lt;p&gt;&#19968;&#20010;Plan&#31867;, &#21253;&#21547;next_datatime, execute, &#20004;&#20010;&#26041;&#27861;, &lt;strong&gt;init&lt;/strong&gt;&#26041;&#27861;&#25351;&#26126;&#22312;&#23454;&#20363;&#21270;&#30340;&#26102;&#20505;,&#38656;&#35201;&#32473;&#23450;&#19968;&#20010;func&#20316;&#20026;&#21442;&#25968;, &#20854;&#20182;&#21442;&#25968;&#21487;&#20197;&#26159;&#26102;&#38388;&#38388;&#38548;, &#25110;&#20855;&#20307;&#30340;&#26102;&#38388;&#28857;,&lt;/p&gt;
+&lt;pre&gt;
+
+class Plan(object):
+
+    def __init__(self, func):
+
+        assert callable(fund)
+
+        self.func = fund
+
+    def excute(self):
+
+        self.func()
+
+&lt;/pre&gt;
+
+&lt;p&gt;Plan&#20316;&#22522;&#31867;, &#26681;&#25454;&#38656;&#35201;&#21487;&#20197;&#20570;&#27966;&#29983;,  &#27604;&#22914;&#19968;&#20010;&#26041;&#24335;&#26159;&#25353;&#29031;&#25351;&#23450;&#30340;&#26102;&#38388;, &#38388;&#38548;&#25191;&#34892;func,  &#27966;&#29983;&#21478;&#22806;&#19968;&#20010;&#26159;&#21040;&#36798;&#25351;&#23450;&#26102;&#21051;&#25165;&#25191;&#34892;func:&lt;/p&gt;
+&lt;pre&gt;
+
+class  FixedIntervalPlan(Plan):    # &#38388;&#38548;&#25351;&#23450;&#26102;&#38388;&#21518;, &#22312;&#22806;&#35843;&#29992;&#30340;&#26102;&#20505;&#21028;&#26029;next_datetime&#26469;&#25191;&#34892;&#26041;&#27861;execute
+
+    def __init__(self, fund, **kwargs):
+
+        super(FixedIntervalPlan, self).__init__(func)
+
+        self.interval = datetime.datetime(**kwargs)
+
+    def next_datetime(self):
+
+        return datetime.datetime.now() + self.interval
+
+class FixedTimePlan(Plan):            
+
+    # &#26681;&#25454;&#25351;&#23450;&#26102;&#21051;&#35745;&#31639;&#20986;&#19979;&#19968;&#26102;&#21051;, &#35843;&#29992;&#30340;&#26102;&#20505;&#21028;&#26029;next_datetime&#26469;&#20915;&#23450;&#26159;&#21542;&#22312;&#36825;&#20010;&#26102;&#21051;&#25191;&#34892;execute&#26041;&#27861;
+
+    def __init__(self, func, **kwargs):
+
+        super(FixedTimePlan, self).__init__(fund)
+
+        self.time = datetime.time(**kwargs)
+
+    def next_datetime(self):        
+
+        now = datetime.datetime.now()
+
+        if self.time &gt; now.time():
+
+            return datetime.datetime.combine(now.date(), self.time)
+
+        else:
+
+            tomorrow = now + datetime.timedelta(days=1)
+
+            return datetime.datetime.combine(tomorrow.date(), self.time)
+
+&lt;/pre&gt;
+
+&lt;p&gt;&#20197;&#19979;&#26159;&#19968;&#20010;&#23454;&#38469;&#20363;&#23376;, &#22914;&#20309;&#20351;&#29992;&#19978;&#38754;&#30340;2&#20010;&#31867;:&lt;/p&gt;
+&lt;pre&gt;
+
+cron_task_config = [
+
+    FixedIntervalPlan(match_team, seconds=10),    #  &#27599;&#38548;10&#31186;&#25191;&#34892;match_team
+
+]
+
+&lt;/pre&gt;
+
+&lt;p&gt;main&#20989;&#25968;&#22914;&#19979;:&lt;/p&gt;
+&lt;pre&gt;
+
+def main():
+
+    pendding_tasks = []   #  &#21021;&#22987;&#21270;&#19968;&#27425;&#24050;&#32463;&#22312;cron_task_config&#37197;&#32622;&#20869;&#30340;&#20219;&#21153;&#23454;&#20363;&#21270;
+
+    for plan in cron_task_config:
+
+        # pan.next_datetime(), &#35745;&#31639;&#19979;&#27425;&#20219;&#21153;&#20160;&#20040;&#26102;&#20505;&#21487;&#20197;&#25191;&#34892;, &#23558;&#27492;&#26102;&#38388;&#21644;&#23454;&#20363;&#21270;&#30340;
+
+        pendding_tasks.append((plan.next_datetime(), plan))                           
+
+                                                                                         #  plan&#19968;&#36215;&#21152;&#20837;&#20934;&#22791;&#25191;&#34892;&#30340;&#21015;&#34920;
+
+    cnt = 0
+
+    while True:
+
+        now = datetime.datetime.now()
+
+        if cnt % 60 == 0:
+
+            print now
+
+        next_pendding_tasks = []
+
+        for task in pendding_tasks:
+
+            trigger_time, plan = task
+
+            if trigger_time &lt; now: # &#35302;&#21457;&#26102;&#38388;&#23601;&#26159;plan&#30340;next_datetime, &#22914;&#26524;&#23567;&#20110;&#24403;&#21069;&#26102;&#38388;, &#34920;&#31034;&#21487;&#20197;&#25191;&#34892;
+
+                plan.execute()
+
+                next_pendding_tasks.append((plan.next_datetime(), plan)) # &#26412;&#27425;&#25191;&#34892;&#23436;&#20043;&#21518;,  &#20877;&#27425;&#35745;&#31639;next_datetime(), &#20197;&#22791;&#19979;&#27425;&#21028;&#26029;
+
+            else:
+
+                next_pendding_tasks.append(task) # &#35302;&#21457;&#26102;&#38388;&#19981;&#31526;&#21512;, &#21152;&#20837;&#19979;&#27425;&#25191;&#34892;&#30340;&#21015;&#34920;&#20869;
+
+        pendding_tasks = next_pendding_tasks
+
+        time.sleep(1)
+
+        cnt += 1
+
+&lt;/pre&gt;
+
+&lt;p&gt;&#30097;&#38382;&#26159;, &#38656;&#35201;&#25630;&#36825;&#20040;&#22797;&#26434;&#20040;, time.sleep&#23450;&#26399;&#25191;&#34892;&#19981;&#23601;&#34892;&#20102;?  &#30701;&#26102;&#38388;&#21453;&#22797;&#25191;&#34892;&#26159;&#29992;time.sleep&#21487;&#35299;&#20915;, &#19981;&#36807;&#24403;&#38656;&#27714;&#26159;&#38656;&#35201;&#22312;&#26576;&#22825;&#26576;&#26102;&#21051;&#31934;&#30830;&#26102;&#25191;&#34892;, &#29992;time.sleep&#26174;&#28982;&#19981;&#34892;&#20102;.  &lt;/p&gt;</description><guid isPermaLink="true">http://bb.yyu.me/article/2013-03-12-1-cron-task-with-datetime-obj</guid><pubDate>Tue, 12 Mar 2013 16:29:00 GMT</pubDate></item><item><title>&lt;h3&gt;&lt;font color="green"&gt;&#20026;blog&#22686;&#21152;&#19968;&#20010;&#22312;&#32447;markdown editor&lt;/font&gt;&lt;/h3&gt;</title><link>http://bb.yyu.me/article/2013-03-11-2-epiceditor-markdown-online_editor</link><description>&lt;h3&gt;&#20026;blog&#22686;&#21152;&#19968;&#20010;&#22312;&#32447;markdown editor&lt;/h3&gt;
+&lt;p&gt;epiceditor&#26159;&#19968;&#20010;&#21069;&#31471;js&#24211;, &#25552;&#20379;&#19968;&#20010;&#22312;&#32447;&#30340;markdown&#32534;&#36753;&#22120;, &lt;a href="http://oscargodson.github.com/EpicEditor/"&gt;&#36825;&#37324;&#26159;&#20182;&#30340;&#20027;&#39029;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://bb.yyu.me/editor"&gt;&#27979;&#35797;&#22320;&#22336;&lt;/a&gt;&lt;/p&gt;</description><guid isPermaLink="true">http://bb.yyu.me/article/2013-03-11-2-epiceditor-markdown-online_editor</guid><pubDate>Mon, 11 Mar 2013 20:09:00 GMT</pubDate></item><item><title>&lt;h3&gt;&lt;font color="green"&gt;http&#21327;&#35758;&#30340;&#32531;&#23384;&#22836;&#31574;&#30053;&lt;/font&gt;&lt;/h3&gt;</title><link>http://bb.yyu.me/article/2013-03-11-1-http-cache-header-resolve</link><description>&lt;h4&gt;http&#21327;&#35758;&#30340;&#32531;&#23384;&#22836;&#31574;&#30053;&lt;/h4&gt;
 &lt;p&gt;&#20197;&#19979;&#22836;&#22343;&#25351;&#36820;&#22238;&#32473;&#27983;&#35272;&#22120;&#30340;&#21709;&#24212;&#22836;&#65281;&lt;/p&gt;
 &lt;p&gt;last-modify  &#21578;&#35785;&#27983;&#35272;&#22120;&#27492;&#25991;&#20214;&#30340;&#26368;&#21518;&#20462;&#25913;&#26102;&#38388;&#65292;&#27983;&#35272;&#22120;&#22312;&#19979;&#27425;&#35775;&#38382;&#21516;&#26679;&#25991;&#20214;&#26102;&#20250;&#24102;&#19978;&#36825;&#20010;&#20462;&#25913;&#26102;&#38388;&#65292;&#26381;&#21153;&#22120;&#22312;&#25910;&#21040;&#35831;&#27714;&#21518;&#27604;&#36739;&#65292;&#22914;&#26524;&#26080;&#21464;&#21270;&#21017;&#30452;&#25509;&#36820;&#22238;304&#21578;&#35785;&#27983;&#35272;&#22120;&#20869;&#23481;&#26080;&#21464;&#21270;&#65292;&#20351;&#29992;&#33258;&#24049;&#26412;&#22320;&#32531;&#23384;&#21363;&#21487;&#65292;&#36890;&#24120;web&#26381;&#21153;&#22120;&#37117;&#20250;&#33258;&#21160;&#20026;&#38745;&#24577;&#35831;&#27714;&#36820;&#22238;&#36825;&#20010;&#22836;!  &lt;/p&gt;
 &lt;p&gt;etag  &#29992;&#22788;&#20197;&#21450;&#31639;&#27861;&#22522;&#26412;&#21644;last-modify&#19968;&#26679;&#65292;&#21482;&#26159;&#20026;&#20102;&#24357;&#34917;&#65292;&#24403;&#27983;&#35272;&#22120;&#21644;&#26381;&#21153;&#22120;&#38388;&#36890;&#36807;&#36127;&#36733;&#22343;&#34913;&#30001;&#22810;&#21488;&#26381;&#21153;&#22120;&#25552;&#20379;&#26381;&#21153;&#26102;&#65292;&#26377;&#21487;&#33021;&#21508;&#26381;&#21153;&#22120;&#26102;&#38388;&#24182;&#19981;&#33021;&#36798;&#21040;&#23436;&#20840;&#19968;&#33268;&#65292;&#23548;&#33268;last-modify&#22836;&#20869;&#23481;&#21487;&#33021;&#22833;&#25928;&#65281; &#36890;&#24120;&#26381;&#21153;&#22120;&#29992;etag&#26102;&#65292;&#23427;&#30340;&#20540;&#23601;&#26159;&#19968;&#20010;&#33021;&#21807;&#19968;&#26631;&#31034;&#25991;&#20214;&#25913;&#21160;&#65292;&#27604;&#22914;md5&#20540;&#65281;&lt;/p&gt;

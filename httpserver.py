@@ -13,19 +13,14 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
 
+from config.web_config import site_config, settings
+from config.web_config import admin_list
+from common.base_httphandler import BaseHandler
+from common import session
+from common.decorator import login_required
 
-site_config = {
-    "title" : "歪鱼",
-    "url" : """http://bb.yyu.me""",
-    "post_dir": os.getcwd() + os.sep + 'posts',
-}
 
-settings = {
-    "static_path": os.path.join(os.path.dirname(__file__), "static"),
-    "debug": True,
-}
-
-def SingleFileHandler(file_path):
+def SingleFileHandler(file_path, keep_original=False):
     f = codecs.open(file_path, mode='r', encoding='utf8')
     lines = []
     try:
@@ -57,11 +52,14 @@ def SingleFileHandler(file_path):
     if title:
         ret['title'] = title
         ret['date'] = date
-        ret['content'] = markdown.markdown(content)
+        if keep_original:
+            ret['content'] = content
+        else:
+            ret['content'] = markdown.markdown(content)
         ret['name'] = file_path.split(os.sep)[-1].split('.')[0]
     return ret
     
-class MainHandler(tornado.web.RequestHandler):
+class MainHandler(BaseHandler):
     def get(self):
         articles = []
         post_dir = site_config["post_dir"]
@@ -73,6 +71,7 @@ class MainHandler(tornado.web.RequestHandler):
         for f in files:
             file_list.append(post_dir + os.sep + f)
         file_list.sort(reverse=True)
+        print file_list
         for single_file in file_list[p:p+3]:
             article = SingleFileHandler(single_file)
             if article: articles.append(article)
@@ -87,22 +86,22 @@ class MainHandler(tornado.web.RequestHandler):
         else:
             pnext = False
              
-        self.render("template/index.html", title=site_config['title'], url=site_config["url"], articles = articles, prev=prev, pnext=pnext, prevnum=p-3, nextnum=p+3)
+        self.render("index.html", title=site_config['title'], url=site_config["url"], articles = articles, prev=prev, pnext=pnext, prevnum=p-3, nextnum=p+3)
 
-class ArticleHandler(tornado.web.RequestHandler):
+class ArticleHandler(BaseHandler):
     def get(self, article_id):
         post_path = site_config["post_dir"] + os.sep + article_id.replace('.','') + '.md'
         article = SingleFileHandler(post_path)
         
-        self.render("template/article.html", title=site_config['title'], url=site_config["url"], article = article)
+        self.render("article.html", title=site_config['title'], url=site_config["url"], article = article)
 
 
-class NotFoundHandler(tornado.web.RequestHandler):
+class NotFoundHandler(BaseHandler):
     def prepare(self):
         self.set_status(404)
-        self.render("template/404.html")
+        self.render("404.html")
 
-class RSSHandler(tornado.web.RequestHandler):
+class RSSHandler(BaseHandler):
     def get(self):
         f = open("rss.xml", "r")
         self.write(f.read())
@@ -154,11 +153,16 @@ def RSSMaker():
 
     rss.write_xml(open("rss.xml", "w"))
 
-class EditorHandler(tornado.web.RequestHandler):
+class EditorHandler(BaseHandler):
+    @login_required
     def get(self):
-        return self.render('template/editor.html')
+        filename = self.get_argument('filename', '')
+        post_dir = site_config["post_dir"]
+        files = os.listdir(post_dir)
+        
+        return self.render('editor.html', files=files, edit_file=filename)
 
-class SaveArticleHandler(tornado.web.RequestHandler):
+class SaveArticleHandler(BaseHandler):
     def post(self):
         filename = self.get_argument('filename')
         article_subject = self.get_argument('subject')
@@ -173,7 +177,8 @@ Date: %s
 comments: true
 categories: notes
 --
-        """%(article_subject, today_time)
+
+"""%(article_subject, today_time)
 
         post_dir = site_config["post_dir"]
         files = os.listdir(post_dir)
@@ -191,18 +196,54 @@ categories: notes
         file.write(content)
         file.close()
         return self.finish({'res': 'ok'})
+
+
+class LoginHandler(BaseHandler):
+    def get(self, action):
+        if action == 'logout':
+            self.session.clear()
+            self.session.save()
+            return self.redirect('/')
+        self.render('login.html')
+
+    def post(self, action):
+        if action == 'login':
+            username = self.get_argument('username')
+            password = self.get_argument('password')
+            if (username, password) not in admin_list:
+                return self.redirect('/account/login')
+                return self.finish('you are not admin')
+            else:
+                self.session['user'] = username
+                self.session.save()
+                return self.redirect('/')
+
+class ImportFileHandler(BaseHandler):
+    def get(self):
+        file = self.get_argument('filename')
+        file_path = site_config["post_dir"] + os.sep + file
+        article = SingleFileHandler(file_path, keep_original=True)
+        content = article['content']
+        return self.finish(content)
+   
         
 class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r"/", MainHandler),
             (r"/article/(.*)", ArticleHandler),
+            (r"/importfile", ImportFileHandler),
             (r"/.*\.xml",RSSHandler),
             (r"/save", SaveArticleHandler),
             (r"/editor", EditorHandler),
+            (r"/account/(.*)", LoginHandler),
             (r"/.*", NotFoundHandler),
         ]
+        settings.update(dict(
+            template_path=os.path.join(os.path.dirname(__file__), "templates")
+        ))
         tornado.web.Application.__init__(self, handlers, **settings)
+        self.session_manager = session.TornadoSessionManager(settings["session_secret"], settings["session_dir"])
 
 if __name__ == "__main__":
     port = sys.argv[1]

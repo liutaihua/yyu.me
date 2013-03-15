@@ -21,7 +21,8 @@ a:hover {
 }
 #content {
 	margin: 2em auto;
-	max-width: 960px;
+	/*max-width: 960px; */
+	max-width: 1024px;
 }
 header {
 	position: fixed;

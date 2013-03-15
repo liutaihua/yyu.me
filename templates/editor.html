@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>歪鱼- MarkDown 文本编辑器</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="static/docs/css/main.css">
+    <link rel="stylesheet" href="static/docs/css/prettify.css">
+    <link rel="shortcut icon" href="static/docs/favicon.ico">
+    <script type="application/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+
+    <script src="/static/assets/js/bootstrap-transition.js"></script>
+    <script src="/static/assets/js/bootstrap-alert.js"></script>
+    <script src="/static/assets/js/bootstrap-modal.js"></script>
+    <script src="/static/assets/js/bootstrap-dropdown.js"></script>
+    <script src="/static/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="/static/assets/js/bootstrap-tab.js"></script>
+    <script src="/static/assets/js/bootstrap-tooltip.js"></script>
+    <script src="/static/assets/js/bootstrap-popover.js"></script>
+    <script src="/static/assets/js/bootstrap-button.js"></script>
+    <script src="/static/assets/js/bootstrap-collapse.js"></script>
+    <script src="/static/assets/js/bootstrap-carousel.js"></script>
+    <script src="/static/assets/js/bootstrap-typeahead.js"></script>
+
+    <link href="/static/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    </head>
+    <body>
+        <script src="static/docs/js/jquery.min.js"></script>
+        <script src="static/epiceditor/js/epiceditor.js"></script>
+        <!-- <script src="static/docs/js/prettify.js"></script>
+        <script src="static/docs/js/main.js"></script>
+        -->
+
+        {% if edit_file != '' %}
+        <script>
+        $(function() {
+            get_article("{{edit_file}}.md");
+        });
+        </script>
+        {% end %}
+
+       <form class="navbar-search pull-left">
+         <a class="btn js-btn" href="/">返回首页</a>
+         <p>
+           <input type="text" name="filename", id="set_filename" placeholder="保存文件名" size="15" style="width:200px; height=20px;"></input>
+         </p>
+         <p>
+           <input type="text" name="subject", id="set_subject" placeholder="文章标题" size="15" style="width:200px; height=20px;"></input>
+         </p>
+         <button onclick="javascript: save_article();" class="btn btn-success active"><i class="icon-white icon-folder-open"></i> 发布</button> 
+
+         <select name="file" id='filename' onchange="javascript: get_article();">
+            {% for name in files%}
+            <option value="{{ name }}">{{ name }}</option>
+            {% end %}
+         </select>
+       </form>
+
+        <div id="epiceditor" style="height: 600px;width:auto"></div>
+        <script>
+            var opts = {
+            container: 'epiceditor',
+            textarea: 'tttttttt',
+            basePath: 'static/epiceditor',
+            clientSideStorage: true,
+            localStorageName: 'epiceditor',
+            useNativeFullsreen: true,
+            parser: marked,
+
+            file: {
+            name: 'test',
+            defaultContent: '',
+            autoSave: 100
+            },
+            theme: {
+            base:'/themes/base/epiceditor.css',
+            preview:'/themes/preview/preview-dark.css',
+            editor:'/themes/editor/epic-dark.css'
+            },
+            focusOnLoad: false,
+            shortcut: {
+            modifier: 18,
+            fullscreen: 70,
+            preview: 80
+            },
+            string: {
+            togglePreview: 'Toggle Preview Mode',
+            toggleEdit: 'Toggle Edit Mode',
+            toggleFullscreen: 'Enter Fullscreen'
+            }
+            };
+            var editor = new EpicEditor(opts);
+            editor.load();
+
+            function save(filename, article_subject, value) {
+                $.ajax({
+                    url: "/save?filename=" + filename + "&subject=" + article_subject,
+                    type: "POST",
+                    data: value,
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                    console.log(data);
+                    },
+                });
+            }
+
+            function save_article() {
+                  var theContent = editor.exportFile();
+                  var filename = document.getElementById('set_filename').value;
+                  var subject = document.getElementById('set_subject').value;
+                  save(filename, subject, theContent, function () {
+                  console.log('Data was saved to the database.');
+                  });
+            }
+
+            function get_article(file){
+                var file = file || document.getElementById('filename').value;
+                $.ajax({
+                    type: 'GET',
+                    url: '/importfile?filename=' + file,
+                    async:true,
+                    success: function(data){
+                        editor.importFile('tmpArticleFile', data);
+                        editor.open('tmpArticleFile');
+                    },
+                    dataType: "text"
+                });
+            }
+
+            function imFile(content) {
+                editor.importFile('tmpArticleFile', content);
+                editor.open('tmpArticleFile');
+            }
+       </script>
+    </body>
+</html>
+
