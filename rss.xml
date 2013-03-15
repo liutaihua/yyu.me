@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<rss version="2.0"><channel><title>歪鱼</title><link>http://bb.yyu.me</link><description></description><lastBuildDate>Thu, 14 Mar 2013 08:38:28 GMT</lastBuildDate><generator>PyRSS2Gen-1.1.0</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>&lt;h3&gt;&lt;font color="green"&gt;postgres&#22791;&#20221;&#21644;&#24674;&#22797;&lt;/font&gt;&lt;/h3&gt;</title><link>http://bb.yyu.me/article/2013-03-14-1-postgres-backup-and-restore</link><description>&lt;h4&gt;&#22791;&#20221;:&lt;/h4&gt;
+<rss version="2.0"><channel><title>歪鱼</title><link>http://bb.yyu.me</link><description></description><lastBuildDate>Fri, 15 Mar 2013 03:08:52 GMT</lastBuildDate><generator>PyRSS2Gen-1.1.0</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>&lt;h3&gt;&lt;font color="green"&gt;postgres&#22791;&#20221;&#21644;&#24674;&#22797;&lt;/font&gt;&lt;/h3&gt;</title><link>http://bb.yyu.me/article/2013-03-14-1-postgres-backup-and-restore</link><description>&lt;h4&gt;&#22791;&#20221;:&lt;/h4&gt;
 &lt;p&gt;&#22312;postgres.conf&#37197;&#32622;&#37324;&#25351;&#23450;:&lt;/p&gt;
 &lt;p&gt;archive_command = 'cp "%p" /data/postgresql/arch/"%f"'&lt;/p&gt;
 &lt;p&gt;&#35774;&#23450;:&lt;/p&gt;
