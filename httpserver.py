@@ -71,7 +71,6 @@ class MainHandler(BaseHandler):
         for f in files:
             file_list.append(post_dir + os.sep + f)
         file_list.sort(reverse=True)
-        print file_list
         for single_file in file_list[p:p+3]:
             article = SingleFileHandler(single_file)
             if article: articles.append(article)
@@ -159,8 +158,17 @@ class EditorHandler(BaseHandler):
         filename = self.get_argument('filename', '')
         post_dir = site_config["post_dir"]
         files = os.listdir(post_dir)
-        
-        return self.render('editor.html', files=files, edit_file=filename)
+
+        article_title = ''
+        if filename != '':
+            for fname in files:
+                if filename in fname:
+                    filename = fname.strip('.md')
+                    post_path = site_config["post_dir"] + os.sep + fname
+                    article = SingleFileHandler(post_path)
+                    title = article['title']
+                    break
+        return self.render('editor.html', files=files, edit_file=filename, article_title=title)
 
 class SaveArticleHandler(BaseHandler):
     def post(self):
@@ -182,16 +190,21 @@ categories: notes
 
         post_dir = site_config["post_dir"]
         files = os.listdir(post_dir)
-        
-        today_file_number = 1
-        for f in files:
-            file_date = '-'.join(f.split('-')[:3])
-            print file_date, today
-            if file_date == today:
-                today_file_number += 1
+        for fname in files:
+            if filename in fname:
+                filename = fname
+                break
+        else:
+            today_file_number = 1
+            for f in files:
+                file_date = '-'.join(f.split('-')[:3])
+                if file_date == today:
+                    today_file_number += 1
 
-        file_sn = today + '-' + str(today_file_number)
-        file = open('posts/%s-%s.md'%(file_sn, filename), 'w')
+            file_sn = today + '-' + str(today_file_number)
+            filename = '%s-%s.md'%(file_sn, filename)
+        #file = open('posts/%s-%s.md'%(file_sn, filename), 'w')
+        file = open('posts/%s'%filename, 'w')
         file.write(u'%s'%_extra_info)
         file.write(content)
         file.close()

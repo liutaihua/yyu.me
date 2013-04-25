@@ -43,11 +43,21 @@
 
        <form class="navbar-search pull-left">
          <a class="btn js-btn" href="/">返回首页</a>
+         <p> <input type="text" name="filename", id="set_filename"
+           {% if edit_file != '' %}
+           value="{{ edit_file }}"
+           {% else %}
+           placeholder="保存文件名"
+           {% end %}
+           size="15" style="width:200px; height=20px;"></input> </p>
          <p>
-           <input type="text" name="filename", id="set_filename" placeholder="保存文件名" size="15" style="width:200px; height=20px;"></input>
-         </p>
-         <p>
-           <input type="text" name="subject", id="set_subject" placeholder="文章标题" size="15" style="width:200px; height=20px;"></input>
+           <input type="text" name="subject", id="set_subject"
+             {% if article_title != '' %}
+             value="{{ article_title.strip('</font></h3>').strip('<h3><font color="green">') }}"
+             {% else %}
+             placeholder="文章标题"
+             {% end %}
+             size="15" style="width:200px; height=20px;"></input>
          </p>
          <button onclick="javascript: save_article();" class="btn btn-success active"><i class="icon-white icon-folder-open"></i> 发布</button> 
 
@@ -90,11 +100,7 @@
             toggleEdit: 'Toggle Edit Mode',
             toggleFullscreen: 'Enter Fullscreen'
             }
-            };
-            var editor = new EpicEditor(opts);
-            editor.load();
-
-            function save(filename, article_subject, value) {
+            }; var editor = new EpicEditor(opts); editor.load(); function save(filename, article_subject, value) {
                 $.ajax({
                     url: "/save?filename=" + filename + "&subject=" + article_subject,
                     type: "POST",
