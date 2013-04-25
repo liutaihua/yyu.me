@@ -166,9 +166,9 @@ class EditorHandler(BaseHandler):
                     filename = fname.strip('.md')
                     post_path = site_config["post_dir"] + os.sep + fname
                     article = SingleFileHandler(post_path)
-                    title = article['title']
+                    article_title = article['title']
                     break
-        return self.render('editor.html', files=files, edit_file=filename, article_title=title)
+        return self.render('editor.html', files=files, edit_file=filename, article_title=article_title)
 
 class SaveArticleHandler(BaseHandler):
     def post(self):
