@@ -1,10 +1,12 @@
 --
 layout: post
-Title: "dejs的机器人hubot集成到gtalk"
-Date: 2013-04-26 16:02
+Title: "nodejs的机器人hubot集成到gtalk"
+Date: 2013-04-26 16:15
 comments: true
 categories: notes
 --
+
+
 
 
 hubot 机器人, 居然今天才去了解了下它, 用nodejs运行, coffee javascrpit写的.  
@@ -121,4 +123,4 @@ module.exports = (robot) ->
 </pre>
 
 robot.hear和robot.respond似乎是一样的, 不过robot.hear看起来更符合机器人聊天.
-接下来怎么调教它, 就看你想这么搞了,  以后想到点好玩的, 再给它加上吧. 
+接下来怎么调教它, 就看你想这么搞了,  以后想到点好玩的, 再给它加上吧. 我的机器人是 robotblabla@gmail.com
