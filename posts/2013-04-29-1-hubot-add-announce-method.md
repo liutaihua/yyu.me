@@ -1,7 +1,7 @@
 --
 layout: post
 Title: "hubot增加announce方式做广播消息"
-Date: 2013-04-29 00:01
+Date: 2013-04-29 11:40
 comments: true
 categories: notes
 --
@@ -100,6 +100,15 @@ module.exports = (robot) ->
 
 至于以后用什么client方式发送广播告警, 简单的方法是:    
 
-写一个简单的xmpp协议(gtalk协议)的小sdk脚本, 通过它发送announce消息到hubot, 然后hubot广播给所有人.     
-
+1, 写一个简单的xmpp协议(gtalk协议)的小sdk脚本, 通过它发送announce消息到hubot, 然后hubot广播给所有人.  
+2, robot对象有一个针对http的方法, robot.router.post可以获取通过hubot的http接口post上来的数据, 这样如果要发布announce, 只需要post到这个方法上即可, 代码如下:  
+<pre>
+  robot.router.post "/broadcast/create", (req, res) ->
+    for own key, user of robot.brain.data.users
+      user_info = { user: user } 
+      robot.send user_info, req.body.message
+    res.end "Message Sent"
+</pre>  
+用`curl -X POST -d "message=opopop" http://hubot-server-ip:9898/broadcast/create` 测试看看吧.
+  
 完.
