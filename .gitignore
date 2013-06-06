@@ -36,3 +36,4 @@ nosetests.xml
 
 nohup.out
 emotion-gallery/*
+emotion-gallery
