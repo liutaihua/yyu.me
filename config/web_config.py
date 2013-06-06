@@ -17,5 +17,5 @@ settings = {
 }
 
 admin_list = [
-    ('admin', 'defage851230'),
+    ('admin', 'admin123'),
 ]
