@@ -261,6 +261,7 @@ class Application(tornado.web.Application):
 if __name__ == "__main__":
     port = sys.argv[1]
     http_server = tornado.httpserver.HTTPServer(Application(), xheaders=True)
+    print 'Listen %s ...'%port
     http_server.listen(port)
     tornado.autoreload.start()
     RSSMaker()

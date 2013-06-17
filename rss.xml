@@ -1,5 +1,513 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<rss version="2.0"><channel><title>歪鱼</title><link>http://bb.yyu.me</link><description></description><lastBuildDate>Thu, 25 Apr 2013 08:05:41 GMT</lastBuildDate><generator>PyRSS2Gen-1.1.0</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>&lt;h3&gt;&lt;font color="green"&gt;tornado&#28304;&#30721;&#26597;&#30475;-&#20195;&#30721;&#32467;&#26500;&#21644;&#35831;&#27714;&#27969;&#21521;&lt;/font&gt;&lt;/h3&gt;</title><link>http://bb.yyu.me/article/2013-04-18-4-tornado-code-source-structure</link><description>&lt;p&gt;&#28304;&#30721;&#37324;&#30340;&#32467;&#26500;:
+<rss version="2.0"><channel><title>歪鱼</title><link>http://bb.yyu.me</link><description></description><lastBuildDate>Sun, 16 Jun 2013 02:33:46 GMT</lastBuildDate><generator>PyRSS2Gen-1.1.0</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>&lt;h3&gt;&lt;font color="green"&gt;&#20116;&#19968;&#38543;&#32842;&lt;/font&gt;&lt;/h3&gt;</title><link>http://bb.yyu.me/article/2013-05-01-1-about-blog-and-hubot-nodejs</link><description>&lt;p&gt;&lt;img src='http://ww1.sinaimg.cn/large/793bee10jw1e47srugr8aj20e509sjsi.jpg'&gt;&lt;/p&gt;
+&lt;p&gt;&#20116;&#19968;&#38750;&#24120;&#26080;&#32842;&#30340;&#22312;&#23478;&#21574;&#30528;, &#26368;&#36817;&#22312;google&#36164;&#26009;&#26102;, &#26597;&#21040;&#30340;&#19968;&#20123;&#25216;&#26415;blog, &#21457;&#29616;&#22909;&#22810;&#37117;&#22312;github&#37324;, &#20063;&#23601;&#26159;&#22909;&#22810;&#20154;&#37117;&#25226;github&#24403;&#20316;&#20445;&#23384;&#25216;&#26415;&#25991;&#31456;&#30340;&#30340;&#31649;&#29702;&#22120;, &#28982;&#21518;&#29992;&#27604;&#22914;Markdown&#31561;&#35821;&#27861;&#24418;&#24335;&#20889;, &#33258;&#24049;&#24324;&#20010;&#31616;&#21333;&#30340;&#31243;&#24207;&#35835;&#20986;&#26469;, &#23637;&#31034;&#23601;&#21487;&#20197;&#21464;&#25104;&#19968;&#20010;&#22522;&#26412;&#30340;blog&#31449;&#28857;&#20102;.&lt;br /&gt;
+&#25105;&#30340;&#36825;&#20010;blog&#20063;&#26159;&#36825;&#20010;&#24847;&#24605;, https://github.com/liutaihua/yyu.me.git, &#20889;&#22909;&#30340;article&#25918;&#22312;post&#30446;&#24405;, &#19968;&#20010;tornado&#30340;web&#26694;&#26550;, &#35835;&#20986;&#36825;&#20123;article, &#21152;&#20010;html&#22260;&#32469;&#23601;&#21464;&#25104;&#29616;&#22312;&#36825;&#20010;&#26679;&#23376;&#20102;, &#19981;&#36807;&#25105;&#36824;&#32473;&#23427;&#22686;&#21152;&#20102;&#22312;&#32447;&#32534;&#36753;&#22120;, &#26159;&#19968;&#20010;Markdown&#35821;&#27861;&#30340;&#22312;&#32447;&#32534;&#36753;&#22120;, &#21487;&#20197;&#35797;&#35797;&#39044;&#35272;Markdown&#35821;&#27861;. &lt;br /&gt;
+&#37492;&#20110;&#25105;&#27599;&#27425;&#21457;&#25991;&#31456;&#34429;&#28982;&#26159;&#36890;&#36807;&#22312;&#32447;&#32534;&#36753;&#22120;&#21457;&#30340;, &#20294;&#26159;&#23454;&#38469;&#25105;&#20889;&#23383;&#21364;&#26159;&#29992;&#21478;&#22806;&#19968;&#20010;Markdown&#32534;&#36753;&#22120;, &#36825;&#20010;&#22312;&#32447;editor&#21482;&#26159;copy&#36827;&#21435;, &#28982;&#21518;&#35774;&#23450;&#26631;&#39064;.&lt;br /&gt;
+&#24819;&#21040;&#19968;&#20010;&#26356;&#31616;&#27905;&#28857;&#30340;&#26041;&#27861;, &#26377;&#26102;&#38388;&#23601;&#25226;&#23427;&#23454;&#29616;&#19968;&#19979;, &#23601;&#26159;&#22312;blog&#26381;&#21153;&#19978;&#20570;&#20010;api, &#25509;&#21463;post, &#28982;&#21518;&#24179;&#24120;&#22312;shell&#37324;&#29992;vim&#23601;&#21487;&#20197;&#20889;blog&#20102;, &#25226;&#20889;&#22909;&#30340;article&#20445;&#23384;, &#28982;&#21518;POST&#21040;&#36825;&#20010;api&#21363;&#21487;, &#36825;&#26679;&#20063;&#30465;&#24471;&#20877;&#27425;&#25171;&#24320;web&#32534;&#36753;&#22120;&#20102;. &lt;/p&gt;
+&lt;p&gt;&#22270;&#37324;&#26426;&#22120;&#20154;&#26159;github&#26368;&#36817;&#24320;&#28304;&#30340;hubot, &#25402;&#19981;&#38169;. github&#24050;&#32463;&#29992;&#23427;&#26469;&#20570;&#36816;&#32500;&#20102;, &#20195;&#30721;&#21457;&#24067;&#31561;. &#25105;&#24819;&#26410;&#26469;&#36825;&#19981;&#22833;&#20026;&#19968;&#20010;&#36816;&#32500;&#30340;&#22909;&#26041;&#21521;, &#20256;&#32479;&#30340;&#26381;&#21153;monitor, &#21578;&#35686;, &#22312;&#23567;&#22411;&#20844;&#21496;&#22522;&#26412;&#23601;&#26159;&#29992;&#19968;&#20010;nagios&#35832;&#22914;&#27492;&#31867;&#30340;&#24320;&#28304;&#22871;&#20214;&#20570;&#21578;&#35686;, &#22522;&#26412;&#23601;&#37117;&#26159;&#22312;&#20351;&#29992;&#37038;&#20214;&#21457;&#36865;&#21578;&#35686;&#37038;&#20214;&#20102;. &#19981;&#36807;&#37038;&#20214;&#23454;&#26102;&#24615;&#31245;&#24046;, &#22914;&#26524;&#29992;robot, &#19981;&#22833;&#20026;&#19968;&#20010;&#22909;&#26041;&#27861;.&lt;br /&gt;
+&#34429;&#28982;nodejs&#35821;&#27861;&#36319;js&#26377;&#25152;&#19981;&#21516;, &#19981;&#36807;&#30475;&#36215;&#26469;&#36824;&#25402;&#19981;&#38169;&#30340;, &#21487;&#33021;&#22240;&#20026;&#26368;&#36817;&#21018;&#30475;&#23436;&#19968;&#26412;&lt;javascript&#39640;&#32423;&#31243;&#24207;&#35774;&#35745;&gt;, js&#35821;&#27861;&#22522;&#26412;&#20102;&#35299;&#20102;&#19968;&#19979;. hubot&#22312;&#29992;nodejs&#20889;&#30340;&#26102;&#20505;, &#24456;&#22810;&#20989;&#25968;&#35843;&#29992;, &#21442;&#25968;&#37117;&#26377;&#19968;&#20010;callback, &#30495;&#26159;&#21508;&#31181;callback&#20256;&#26469;&#20256;&#21435;, &#21644;&#20197;&#21069;&#25509;&#35302;&#30340;&#30830;&#23454;&#26377;&#25152;&#21306;&#21035;, &#26377;&#28857;&#24847;&#24605;.&lt;/p&gt;</description><guid isPermaLink="true">http://bb.yyu.me/article/2013-05-01-1-about-blog-and-hubot-nodejs</guid><pubDate>Wed, 01 May 2013 08:19:00 GMT</pubDate></item><item><title>&lt;h3&gt;&lt;font color="green"&gt;hubot&#22686;&#21152;announce&#26041;&#24335;&#20570;&#24191;&#25773;&#28040;&#24687;&lt;/font&gt;&lt;/h3&gt;</title><link>http://bb.yyu.me/article/2013-04-29-1-hubot-add-announce-method</link><description>&lt;p&gt;hubot&#30340;announce&#36890;&#30693;&#25152;&#26377;&#22312;&#32447;&#32852;&#31995;&#20154;&lt;/p&gt;
+&lt;p&gt;hubot&#22312;&#20351;&#29992;&#25346;&#25509;&#21040;&#20854;&#20182;&#24179;&#21488;&#26102;, &#26159;&#25903;&#25345;room&#30340;&#26041;&#24335;&#20102;, &#36825;&#26679;&#23601;&#25903;&#25345;&#20102;&#30001;&#19968;&#20010;&#29992;&#25143;&#21457;&#36865;announce&#36890;&#30693;&#25152;&#26377;&#22312;&#32447;&#32852;&#31995;&#20154;&#30340;&#26041;&#24335;&#20102;.  &lt;/p&gt;
+&lt;p&gt;&#22240;&#20026;&#24819;&#21040;&#20197;&#21518;&#25110;&#35768;&#21487;&#20197;&#20351;&#29992;hubot&#26469;&#20316;&#20026;&#30417;&#25511;&#36890;&#30693;, &#24403;&#20320;&#25351;&#23450;&#30340;&#30417;&#25511;&#39033;&#30446;&#21578;&#35686;&#26102;, &#20351;&#29992;hubot&#25226;&#20449;&#24687;&#21457;&#36865;&#21040;&#25152;&#26377;&#22312;&#32447;&#35746;&#38405;&#20154;.  &lt;/p&gt;
+&lt;p&gt;&#22240;&#20026;&#23545;nodejs&#30340;&#36825;&#20010;coffee&#22522;&#26412;&#37117;&#36824;&#22312;&#30740;&#31350;&#38454;&#27573;, &#25152;&#20197;&#20197;&#19979;&#35828;&#30340;&#19981;&#33021;&#20195;&#34920;&#23436;&#20840;&#27809;&#38169;&#35823;, &#25110;&#26159;&#26368;&#20339;&#30340;&#21150;&#27861;..  &lt;/p&gt;
+&lt;p&gt;robot&#23545;&#35937;&#26377;&#20010;robot.brain.data.users&#26041;&#27861;, &#20445;&#23384;&#30340;&#26159;&#24403;&#21069;&#30340;&#22312;&#32447;&#35746;&#38405;&#29992;&#25143;, &#21033;&#29992;&#36825;&#20010;, &#21487;&#20197;&#38543;&#24847;&#30340;&#23558;&#26576;&#26465;&#28040;&#24687;&#21457;&#36865;&#32473;&#25152;&#26377;&#20154;, &#36825;&#37324;&#20030;&#20363;&#26159;announce.py&#33050;&#26412;:  &lt;/p&gt;
+&lt;pre&gt;
+
+module.exports = (robot) -&gt;
+
+
+
+  if process.env.HUBOT_ANNOUNCE_ROOMS
+
+    allRooms = process.env.HUBOT_ANNOUNCE_ROOMS.split(',')
+
+  else
+
+    allRooms = []
+
+
+
+  robot.respond /announce (.*)/i, (msg) -&gt;
+
+    announcement = msg.match[1]
+
+    for own key, user of robot.brain.data.users
+
+      user_info = { user: user } # &#24635;&#20043;, &#20026;&#20102;&#21518;&#38754;robot&#21644;adapter&#30340;send&#26041;&#27861;&#35843;&#29992;, &#22810;&#21253;&#19968;&#23618;, &#21542;&#21017;send&#21462;user&#20250;&#21462;&#25104;undefined
+
+      robot.send user_info, announcement 
+
+&lt;/pre&gt;
+
+&lt;p&gt;&#19978;&#38754;&#20351;&#29992;&#30340;robot.send&#26041;&#27861;&#21457;&#36865;&#28040;&#24687;,&#36825;&#20010;&#26041;&#27861;&#23450;&#20041;&#22312;src/robot.coffee&#37324;:  &lt;/p&gt;
+&lt;pre&gt;
+
+  send: (user, strings...) -&gt; 
+
+    @adapter.send user, strings&#8230;  
+
+&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&#21487;&#20197;&#30475;&#20986;&#23427;&#23454;&#38469;&#26159;&#35843;&#29992;&#20320;&#21551;&#21160;hubot&#26102;&#25152;&#29992;&#30340;&#20855;&#20307;&#30340;adapter&#30340;send&#26041;&#27861;, &#36825;&#37324;&#25105;&#29992;&#30340;gtalk&#36825;&#20010;adapter, &#22240;&#27492;&#21487;&#20197;&#25214;&#21040;&#36825;&#20010;send&#26041;&#27861;&#26368;&#32456;&#23450;&#20041;&#22312;:  node_modules/hubot-gtalk/src/gtalk.coffee  &lt;/p&gt;
+&lt;pre&gt;
+
+  send: (envelope, strings...) -&gt;
+
+    for str in strings
+
+      message = new Xmpp.Element('message',
+
+          from: @client.jid.toString()
+
+          to: envelope.user.id
+
+          type: if envelope.room then 'groupchat' else envelope.user.type
+
+        ).
+
+        c('body').t(str)
+
+      # Send it off
+
+      @client.send message
+
+&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&#19978;&#38754;&#20195;&#30721;&#20013;, &#20351;&#29992;&#30340;&#26159;envelope.user.id&#26469;&#33719;&#21462;&#29992;&#25143;id&#30340;, &#22240;&#27492;&#25165;&#38656;&#35201;&#22312;announce.coffee&#33050;&#26412;&#37324;, &#27604;&#36739;&#20667;&#24125;&#30340;&#22312;user&#22806;&#22312;&#21253;&#19968;&#23618;{ user: user }, &#21542;&#21017;&#22312;&#36825;&#37324;&#20351;&#29992;envelope.user.id&#23558;&#26080;&#27861;&#21462;&#21040;&#29992;&#25143;id(&#23601;&#26159;gmail&#37038;&#31665;&#22320;&#22336;), &#23548;&#33268;&#24191;&#25773;&#28040;&#24687;&#22833;&#36133;.  &lt;/p&gt;
+&lt;p&gt;&#20110;&#36825;&#20010;send&#26041;&#27861;&#23545;&#24212;&#30340;, &#36824;&#26377;rely&#21644;messageRoom&#26041;&#27861;, &#20182;&#20204;&#22312;robot.coffee&#37324;&#23450;&#20041;&#26102;&#26368;&#32456;&#37117;&#26159;&#35843;&#29992;adapter.send&#26469;&#21457;&#36865;&#28040;&#24687;.  &lt;/p&gt;
+&lt;p&gt;&#33267;&#20110;&#20197;&#21518;&#29992;&#20160;&#20040;client&#26041;&#24335;&#21457;&#36865;&#24191;&#25773;&#21578;&#35686;, &#31616;&#21333;&#30340;&#26041;&#27861;&#26159;:    &lt;/p&gt;
+&lt;p&gt;1, &#20889;&#19968;&#20010;&#31616;&#21333;&#30340;xmpp&#21327;&#35758;(gtalk&#21327;&#35758;)&#30340;&#23567;sdk&#33050;&#26412;, &#36890;&#36807;&#23427;&#21457;&#36865;announce&#28040;&#24687;&#21040;hubot, &#28982;&#21518;hubot&#24191;&#25773;&#32473;&#25152;&#26377;&#20154;.&lt;br /&gt;
+2, robot&#23545;&#35937;&#26377;&#19968;&#20010;&#38024;&#23545;http&#30340;&#26041;&#27861;, robot.router.post&#21487;&#20197;&#33719;&#21462;&#36890;&#36807;hubot&#30340;http&#25509;&#21475;post&#19978;&#26469;&#30340;&#25968;&#25454;, &#36825;&#26679;&#22914;&#26524;&#35201;&#21457;&#24067;announce, &#21482;&#38656;&#35201;post&#21040;&#36825;&#20010;&#26041;&#27861;&#19978;&#21363;&#21487;, &#20195;&#30721;&#22914;&#19979;:&lt;br /&gt;
+&lt;pre&gt;
+  robot.router.post "/broadcast/create", (req, res) -&amp;gt;
+    for own key, user of robot.brain.data.users
+      user_info = { user: user } 
+      robot.send user_info, req.body.message
+    res.end "Message Sent"
+&lt;/pre&gt;&lt;br /&gt;
+&#29992;&lt;code&gt;curl -X POST -d "message=opopop" http://hubot-server-ip:9898/broadcast/create&lt;/code&gt; &#27979;&#35797;&#30475;&#30475;&#21543;.&lt;/p&gt;
+&lt;p&gt;&#23436;.&lt;/p&gt;</description><guid isPermaLink="true">http://bb.yyu.me/article/2013-04-29-1-hubot-add-announce-method</guid><pubDate>Mon, 29 Apr 2013 11:40:00 GMT</pubDate></item><item><title>&lt;h3&gt;&lt;font color="green"&gt;&#20026;hubot&#26426;&#22120;&#20154;&#33050;&#26412;&#22686;&#21152;python&#25193;&#23637;&lt;/font&gt;&lt;/h3&gt;</title><link>http://bb.yyu.me/article/2013-04-27-1-hubot-nodejs-to-python-script</link><description>&lt;p&gt;&#20026;hubot&#26426;&#22120;&#20154;&#33050;&#26412;&#22686;&#21152;python&#25193;&#23637;&lt;/p&gt;
+&lt;p&gt;&#26152;&#22825;&#39034;&#21033;&#25226;hubot&#36305;&#36215;&#26469;&#20102;, &#33021;&#22238;&#31572;&#20102;. &#20063;&#36890;&#36807;nodejs&#30340;exec&#21629;&#20196;&#25191;&#34892;shell&#30340;&#26041;&#24335;, &#23558;&#28040;&#24687;&#20197;&#21442;&#25968;&#30340;&#24418;&#24335;&#20256;&#32473;process.py&#22788;&#29702;, &#20197;&#24418;&#25104;&#29992;py&#20889;&#33050;&#26412;&#30340;&#24418;&#24335;.&lt;br /&gt;
+&#19981;&#36807;&#19978;&#38754;&#26041;&#24335;&#26377;&#32570;&#38519;:&lt;br /&gt;
+1, nodejs&#19981;&#26159;&#30495;&#27491;&#30340;&#35843;&#29992;py, &#21516;&#26102;py&#25191;&#34892;&#30340;&#36820;&#22238;&#25110;&#30452;&#25509;print&#25110;&#20889;stdout(print&#22312;&#26576;&#31181;&#31243;&#24230;&#19978;&#23601;&#26159;stdout), &#28982;&#21518;nodejs&#20160;&#20040;&#37117;&#19981;&#29992;&#24178;, &#23601;&#30452;&#25509;&#30456;&#24403;&#20110;&#25226;stdout&#20351;&#29992;msg.send&#22238;&#22797;&#32473;gtalk&#20102;.&lt;br /&gt;
+2, &#25972;&#20307;&#32467;&#26500;&#19981;&#20248;&#32654;, nojs&#36319;py&#36824;&#24471;&#38752;exec&#25191;&#34892;shell&#30340;&#24418;&#24335;, &#36825;&#31181;&#35843;&#29992;&#26041;&#24335;&#25402;&#19985;&#38475;.  &lt;/p&gt;
+&lt;p&gt;&#22312;github&#19978;&#25214;&#21040;&#19968;&#20010;&#33050;&#26412;, &#20063;&#26159;&#20026;&#20102;&#29992;python&#26469;&#20889;hubot&#30340;&#33050;&#26412;, &#23454;&#29616;&#26041;&#24335;&#20063;&#26159;&#29992;stdout&#21644;stdin&#32467;&#21512;, &#36798;&#21040;nodejs&#25910;&#21040;gtalk&#28040;&#24687;&#21518;, &#23558;&#28040;&#24687;&#20256;&#32473;py&#22788;&#29702;. &#25343;&#26469;&#21518;, &#21448;&#20570;&#20102;&#19968;&#20123;&#20462;&#25913;, &#20855;&#20307;&#36807;&#31243;&#26159;:  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt; &#23553;&#35013;&#19968;&#20010;Python &#31867;, &#25509;&#25910;stdin, &#36755;&#20986;stdout.&lt;br /&gt;
+&lt;/em&gt; &#22312;nodejs&#37324;&#21551;&#21160;&#36825;&#20010;py&#31867;&#30340;listen&#30417;&#21548;stdin, robot&#25910;&#21040;&#28040;&#24687;&#26102;write&#21040;stdin, &lt;br /&gt;
+&lt;em&gt; py&#20174;stdin&#20013;&#35835;&#21040;&#28040;&#24687;, &#20132;&#32473;&#25351;&#23450;&#30340;handler&lt;br /&gt;
+&lt;/em&gt; handler&#22788;&#29702;&#23436;&#25104;&#21518;, &#36755;&#20986;stdout, &#21516;&#26102;&#35302;&#21457;nodejs&#30340;event, &#35835;&#21462;stdout&#36890;&#36807;robot&#21457;&#36865;&#22238;&#39304;&#20449;&#24687;.  &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;pyscript.coffee&#33050;&#26412;&#22914;&#19979;: 
+&lt;pre&gt;
+class PythonScript&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pyScriptPath = __dirname + '/test.py'
+python_script = require('child_process').spawn('python', [pyScriptPath])
+python_script.stdout.on 'data', (data) =&amp;gt;
+    receive_from_python(data.toString())
+
+module.exports = (robot) -&amp;gt;
+    @robot = robot
+    #robot.respond /(.*)/i, (msg) -&amp;gt;
+    #    newRegex = new RegExp("^[@]?#{robot.name}[:,]? ?(.*)", 'i')
+    #    match = newRegex.exec msg.message.text
+    #    send_to_python(match[1], msg.message.room, 'respond')
+    #    @robot.msg = msg
+
+    robot.hear /(.*)/i, (msg) -&amp;gt;
+        send_to_python(msg.message.text, msg.message.room, 'hear')
+        @robot.msg = msg
+
+send_to_python = (message, room, method) -&amp;gt;
+    dict =
+        type : method,
+        message : message,
+        room : room
+    python_script.stdin.write(JSON.stringify(dict) + '\n')
+    console.log JSON.stringify(dict)
+
+receive_from_python = (json) -&amp;gt;
+    data = JSON.parse(json)
+    #@robot.messageRoom data.room, data.message # &#24694;&#24515;&#30340;&#38382;&#39064;, data.room&#22312;send_to_python&#35843;&#29992;&#20256;&#30340;&#21442;&#25968;msg.message.room&#26159;undefined, &#23548;&#33268;&#36825;&#37324;&#19981;&#33021;&#36825;&#26679;&#29992;
+    @robot.msg.send data.message   # &#20110;&#26159;&#22312;&#20837;&#21475;&#30340;&#22320;&#26041;&#30452;&#25509;&#25226;msg&#23545;&#35937;&#36171;&#32473;@robot&#37324;&#30340;, &#22312;&#36825;&#37324;&#23601;&#33021;&#22840;&#20989;&#25968;&#35843;&#29992;msg.send&#20102;.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;PythonScript&#31867;&#23553;&#35013;&#22914;&#19979;: hubot_script.py  &lt;/p&gt;
+&lt;pre&gt;
+handlers = [
+    (r'/hubot/sys/(.*)', syscmdhandler),
+    (r'/hubot/chat/(.*)', chathandler),
+]
+
+class HubotScript:
+    def __init__(self):
+        self.start_listening()
+
+    # &#21019;&#24314;&#19968;&#20010;listen, &#30417;&#21548;&#26631;&#20934;&#36755;&#20837;, &#26377;&#36755;&#20837;&#26102;&#25191;&#34892;&#21518;&#38754;&#36923;&#36753;
+    def start_listening(self):
+        while True:
+            line = sys.stdin.readline()
+            self.receive(line)
+
+    def receive(self, json_str):
+        # &#36825;&#37324;&#19968;&#23450;&#38656;&#35201;&#25429;&#33719;&#38169;&#35823;, &#21542;&#21017;&#20986;&#38169;&#20250;&#30452;&#25509;&#36339;&#20986; start_listening&#20013;&#30340;&#24490;&#29615;, &#30417;&#21548;&#23601;&#32467;&#26463;&#20102;
+        try:
+            json_dict = json.loads(json_str)
+            json_dict['message'] = '/' + '/'.join(json_dict['message'].split(' ')) # &#25630;&#25104;&#31867;&#20284;url&#30340;&#24418;&#24335;, &#26041;&#20415;handlers&#37324;&#30340;regex&#21305;&#37197;
+            self.dispatch(json_dict)
+        except Exception, e:
+            print e
+
+    def send(self, message):
+        if message:
+            #print json.dumps(message)
+            sys.stdout.write(json.dumps(message) + '\n')
+            sys.stdout.flush()
+
+    # Message Dispatch
+    def dispatch(self, json_dict):
+        #msg_type = json_dict['type']
+        #if msg_type == 'hear':
+        #    self.dispatch_generic(json_dict, _hear_handlers)
+        #elif msg_type == 'respond':
+        #    self.dispatch_generic(json_dict, _resp_handlers)
+        self.dispatch_generic(json_dict, handlers)
+
+    def dispatch_generic(self, message, regexes):
+        for regex, handler in regexes:
+            p = re.match(regex, message['message'])
+            if p:
+                action = ' '.join(p.groups()[0].split('/'))
+                response = message
+                #response_text = handler(self, message)
+                response_text = handler(self, action)
+                if response_text:
+                    if len(response_text) &gt; 3000: # nodejs&#30340;JSON.parse&#19981;&#33021;&#22788;&#29702;&#22826;&#38271;&#30340;str
+                        response_text = response_text[:3000]
+                    response['message'] = response_text
+                    self.send(response)
+def hear(regex): # &#27979;&#35797;&#29992;decorator
+    def decorator(handler):
+        handlers.append((regex, handler))
+    return decorator
+&lt;/pre&gt;
+
+&lt;p&gt;&#38468;&#24102;&#19968;&#20010;&#27979;&#35797;&#31243;&#24207;, test.py:&lt;br /&gt;
+&lt;pre&gt;
+#coding=utf8
+from hubot_script import *&lt;/p&gt;
+&lt;p&gt;class TestScript(HubotScript):&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@hear('def')
+def test_handler(self, message):
+    return 'hear'
+
+#@respond('abc')
+#def test_handlera(self, message):
+#    return 'respond'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;if &lt;strong&gt;name&lt;/strong&gt; == '&lt;strong&gt;main&lt;/strong&gt;':
+    test = TestScript()
+&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;
+&#33267;&#27492;&lt;/strong&gt;
+**&#25105;&#24050;&#32463;&#23558;hubot, gtalk, python&#38598;&#25104;&#21040;&#19968;&#36215;&#20102;, &#25105;&#30340;hubot&#30340;fork&#22312;&lt;br /&gt;
+https://github.com/liutaihua/hubot.git
+&#36816;&#34892;&#26041;&#24335;:&lt;br /&gt;
+clone&#20043;&#21518;, &#39318;&#20808;&#36827;&#20837;hubot:&lt;br /&gt;
+&lt;code&gt;cd hubot &amp;amp;&amp;amp; npm install&lt;/code&gt; &lt;/p&gt;
+&lt;p&gt;&#28982;&#21518;&#24471;&#22312;&#36827;&#20837;node_modules/hubot-gtalk/&#20026;hubot-gtalk&#36825;&#20010;adapter&#23433;&#35013;&#20381;&#36182;:&lt;br /&gt;
+&lt;code&gt;cd node_modules/hubot-gtalk/ &amp;amp;&amp;amp; npm install&lt;/code&gt; &lt;/p&gt;
+&lt;p&gt;&#26368;&#21518;&#36816;&#34892;&lt;br /&gt;
+&lt;code&gt;./bin/hubot -a gtalk&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&#23436;.&lt;/strong&gt;&lt;/p&gt;</description><guid isPermaLink="true">http://bb.yyu.me/article/2013-04-27-1-hubot-nodejs-to-python-script</guid><pubDate>Sat, 27 Apr 2013 13:33:00 GMT</pubDate></item><item><title>&lt;h3&gt;&lt;font color="green"&gt;nodejs&#30340;&#26426;&#22120;&#20154;hubot&#38598;&#25104;&#21040;gtalk&lt;/font&gt;&lt;/h3&gt;</title><link>http://bb.yyu.me/article/2013-04-26-1-nodejs-hubot-robot</link><description>&lt;p&gt;hubot &#26426;&#22120;&#20154;, &#23621;&#28982;&#20170;&#22825;&#25165;&#21435;&#20102;&#35299;&#20102;&#19979;&#23427;, &#29992;nodejs&#36816;&#34892;, coffee javascrpit&#20889;&#30340;.  &lt;/p&gt;
+&lt;p&gt;&#35760;&#24405;&#19979;&#23433;&#35013;&#26041;&#24335;&lt;br /&gt;
+&#22914;&#26524;&#26159;redhat&#31995;&#21015;&#30340;linux, &#20351;&#29992;yum &#23433;&#35013;&#21363;&#21487;, centos6&#21518;&#30340;nodejs&#29256;&#26412;&#24050;&#32463;&#24456;&#26032;&#20102;.
+&#23454;&#22312;&#19981;&#34892;&#23601;&#25630;&#28304;&#30721;&#23433;&#35013;.&lt;/p&gt;
+&lt;p&gt;1, clone&#20195;&#30721;&lt;br /&gt;
+    git clone https://github.com/github/hubot&lt;/p&gt;
+&lt;p&gt;2, &#23433;&#35013;&#20381;&#36182;
+    cd hubot &amp;amp;&amp;amp; npm install&lt;/p&gt;
+&lt;p&gt;3, &#23581;&#35797;&#36816;&#34892;&lt;br /&gt;
+    ./bin/hubot 
+&#22312;&#20986;&#29616;&#30340;hubot&#30340;console &#36755;&#20837;hubot help&#30475;&#30475;&#24110;&#21161;&#21629;&#20196;&#21543;, &#36755;&#20837;pug me&#21629;&#20196;, &#22914;&#26524;&#27491;&#24120;&#20250;&#36820;&#22238;&#19968;&#20010;http&#38142;&#25509;, &#25171;&#24320;&#39029;&#38754;&#26159;&#20010;&#21487;&#29233;&#30340;&#29399;&#29399;.&lt;/p&gt;
+&lt;p&gt;4,  &#23558;hubot&#21644;gtalk&#36830;&#25509;&lt;br /&gt;
+&#29992;./bin/hubot -h&#21487;&#20197;&#30475;&#21040;&#24110;&#21161;, &#20854;&#20013;-a&#21442;&#25968;&#34920;&#31034;&#25351;&#23450;adapter&lt;br /&gt;
+git clone git://github.com/atmos/hubot-gtalk.git &#33719;&#21462;gtalk&#30340;adapter&#20195;&#30721;, &#30452;&#25509;&#23558;hubot-gtalk&#25918;&#22312;hubot&#30340;node_modules&#19979;, &#26041;&#20415;hubot&#26597;&#25214;&#24211;.&lt;/p&gt;
+&lt;p&gt;&#20851;&#20110;&#36830;&#25509;gtalk&#30340;&#25991;&#26723;, &#21487;&#20197;&#26597;&#30475;  https://github.com/github/hubot/wiki/Adapter:-Gtalk&lt;br /&gt;
+&#20854;&#23454;&#24456;&#31616;&#21333;, &#35774;&#23450;2&#20010;&#31995;&#32479;&#29615;&#22659;&#21464;&#37327;: HUBOT_GTALK_USERNAME, HUBOT_GTALK_PASSWORD
+&#25105;&#30340;&#20570;&#27861;&#38750;&#24120;&#26292;&#21147;, &#25105;&#30452;&#25509;&#32534;&#36753; node_modules/hubot-gtalk/src/gtalk.coffee  &#20462;&#25913;&lt;br /&gt;
+    # Client Options
+    @options =
+      username: 'xxxxx@gmail.com'
+      password: 'xxxxxxxxx'&lt;/p&gt;
+&lt;p&gt;&#36824;&#26377;&#19968;&#20010;&#31995;&#32479;&#21464;&#37327;&#38656;&#35201;&#27880;&#24847;, hubot&#36816;&#34892;&#26102;,&#27604;&#22914;&#30452;&#25509;./bin/hubot -a shell&#40664;&#35748;&#20250;&#30417;&#21548;&#31471;&#21475;, &#32780;&#31471;&#21475;&#20540;&#20351;&#29992;&#30340;&#26159;&#29615;&#22659;&#21464;&#37327;PORT, &#40664;&#35748;&#26159;8080 ,&#22914;&#26524;&#34987;&#21344;&#29992;, hubot&#31243;&#24207;&#21551;&#21160;&#19981;&#20102;. &#25152;&#20197;&#35774;&#23450;&#19979; export PORT=8989&#20043;&#31867;&#30340;&#31471;&#21475;.  &lt;/p&gt;
+&lt;p&gt;&#21069;&#38754;&#35828;&#36947;&#30340;gtalk&#36825;&#20010;adapter, &#28304;&#25991;&#20214;&#20854;&#23454;&#23601;&#26159;  node_modules/hubot-gtalk/src/gtalk.coffee, &#25105;&#22312;&#20351;&#29992;&#36807;&#31243;&#20013;&#21457;&#29616;, &#37324;&#38754;&#26377;&#20010;TextMessage&#20989;&#25968;&#22312;&#29992;&#21069;&#27809;&#26377;&#23548;&#20837;, &#20250;&#23548;&#33268;&#36816;&#34892;&#21518;, &#34429;&#28982;hubot&#33021;&#36830;&#25509;gtalk, &#20294;&#26159;&#26080;&#27861;&#21709;&#24212;&#20320;&#30340;&#28040;&#24687;,  &#31245;&#20316;&#20462;&#25913;(node_modules/hubot-gtalk/src/gtalk.coffee):  &lt;/p&gt;
+&lt;p&gt;Adapter       = require '/root/app/hubot/src/adapter'
+{TextMessage} = require '/root/app/hubot/src/message'&lt;/p&gt;
+&lt;p&gt;&#21516;&#26102;&#20381;&#33899;&#30011;&#29922;, &#20889;&#20102;&#19968;&#20010;isAllowUser&#26041;&#27861;, &#29992;&#20110;&#39564;&#35777;&#29992;&#25143;, &#19981;&#33021;&#35841;&#37117;&#36992;&#35831;&#20320;&#36825;&#20010;hubot&#32842;&#22825;, &#28982;&#21518;&#23601;&#21521;hubot&#21457;&#21629;&#20196;&#21543;, &#22240;&#20026;&#25105;&#30340;hubot&#37324;&#20889;&#20102;&#19968;&#20123;&#31995;&#32479;&#30456;&#20851;&#30340;, &#24597;&#19981;&#23433;&#20840;.
+user_list =
+  'defage': 'admin'
+  'liutaihua2008': 'user'  &lt;/p&gt;
+&lt;p&gt;isAllowUser: (jid) -&amp;gt;
+    name = jid.user
+    if user_list[name] == undefined
+      return false
+    return true&lt;/p&gt;
+&lt;p&gt;&#22312;handlePresence &#20989;&#25968;&#37324;&#35843;&#29992;&#19968;&#19979;, &#39564;&#35777;&#19981;&#36890;&#36807;&#23601;&#19981;&#36827;&#34892;&#21518;&#38754;&#30340;&#21160;&#20316;&#20102;&lt;br /&gt;
+    if not @isAllowUser(jid)
+      return&lt;/p&gt;
+&lt;p&gt;5, &#25104;&#21151;&#36830;&#19978;gtalk&#20043;&#21518;, &#33021;&#29992;&#20102;, happy&#20102;&#19968;&#20250;, &#21487;&#26159;&#26426;&#22120;&#20154;&#27604;&#36739;&#20667;, &#25165;&#25026;&#31616;&#21333;&#30340;&#37027;&#20040;&#20960;&#20010;&#31034;&#20363;&#21629;&#20196;, &#19979;&#38754;&#26159;&#33258;&#24049;&#25193;&#23637;&#23427;&#30340;&#26041;&#27861;:&lt;br /&gt;
+&#22312;src/scripts/&#36335;&#24452;&#19979;, &#26159;&#21629;&#20196;&#33050;&#26412;, &#38543;&#20415;&#25441;&#19968;&#20010;&#30475;&#19968;&#30524;, &#20250;&#21457;&#29616;&#25402;&#31616;&#21333;, &#33050;&#26412;&#37324;&#26377;&#19968;&#26465;&#27880;&#37322;, &#20250;&#34987;&#29992;&#20316;help&#21629;&#20196;&#30340;&#36755;&#20986;  &lt;/p&gt;
+&lt;p&gt;&lt;code&gt;# Commands:&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;#   hubot email &amp;lt;user@email.com&amp;gt; -s &amp;lt;subject&amp;gt; -m &amp;lt;message&amp;gt; - Sends email with the &amp;lt;subject&amp;gt; &amp;lt;message&amp;gt; to address &amp;lt;user@email.com&amp;gt;&lt;/code&gt;
+&#23601;&#26159;&#36825;&#34892;&#20102;, &#34429;&#28982;&#26159;&#27880;&#37322;, &#19981;&#36807;&#20250;&#34987;&#24403;&#20316;hubot help&#30340;&#36755;&#20986;.  &lt;/p&gt;
+&lt;p&gt;&#26242;&#26102;&#25105;&#20462;&#25913;&#20102;&#33258;&#24102;&#30340;math.coffee,  &#35745;&#31639;&#22120;&#20040;, &#21407;&#26469;&#30340;&#23621;&#28982;&#36824;&#36305;&#21040;google&#19978;&#21435;&#26469;&#19968;&#36718;, &#28982;&#21518;&#35745;&#31639;&#22909;&#20102;&#36820;&#22238;, &#25918;&#30528;&#29616;&#25104;&#30340;eval&#24178;&#21527;&#19981;&#29992;, &#21361;&#38505;&#23601;&#21361;&#38505;. &#21453;&#27491;&#25105;&#26159;&#33258;&#24049;&#29992;.  &lt;/p&gt;
+&lt;p&gt;&#22686;&#21152;&#20102;&#19968;&#20010;cmd.coffee &#25509;&#25910;&#28040;&#24687;&#37324;&#30340;&#21442;&#25968;, js&#25105;&#22826;&#33756;&#20102;, &#20110;&#26159;&#23601;&#29992;exec&#26041;&#27861;, &#25226;&#21629;&#20196;&#20840;&#37096;&#20002;&#32473;&#19968;&#20010;&#20889;&#22909;&#30340;process.py, &#28982;&#21518;&#22312;py&#37324;&#23601;&#21487;&#20197;&#24819;&#24178;&#21527;&#23601;&#24178;&#21527;&#20102;,  &#38656;&#35201;&#27880;&#24847;&#30340;&#26159;, js&#37324;&#35835;&#36755;&#20986;&#35835;&#30340;&#26159;stdout, &#22914;&#26524;stdout&#27809;&#19996;&#35199;, &#20351;&#29992;msg.send sdtout&#36820;&#22238;&#28040;&#24687;&#26102;, &#21487;&#33021;&#20250;&#26159;&#31354;&#30340;, &#21482;&#38656;&#35201;&#22312;process.py&#37324;&#31245;&#20570;&#27880;&#24847;&#21363;&#21487;.
+&#19979;&#38754;&#26159;&#36825;&#20010;cmd.coffee&#33050;&#26412;&#20869;&#23481;:
+&lt;pre&gt;
+&lt;/code&gt;
+ # Description:
+ #   Email from hubot to any address
+ #
+ # Dependencies:
+ #   None
+ #
+ # Configuration:
+ #   None
+ #
+ # Commands:
+ #   hubot email &lt;a href="&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#116;&amp;#111;&amp;#58;&amp;#117;&amp;#115;&amp;#101;&amp;#114;&amp;#64;&amp;#101;&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#46;&amp;#99;&amp;#111;&amp;#109;"&gt;&amp;#117;&amp;#115;&amp;#101;&amp;#114;&amp;#64;&amp;#101;&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#46;&amp;#99;&amp;#111;&amp;#109;&lt;/a&gt; -s &lt;subject&gt; -m &lt;message&gt; - Sends email with the &lt;subject&gt; &lt;message&gt; to address &lt;a href="&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#116;&amp;#111;&amp;#58;&amp;#117;&amp;#115;&amp;#101;&amp;#114;&amp;#64;&amp;#101;&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#46;&amp;#99;&amp;#111;&amp;#109;"&gt;&amp;#117;&amp;#115;&amp;#101;&amp;#114;&amp;#64;&amp;#101;&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#46;&amp;#99;&amp;#111;&amp;#109;&lt;/a&gt;
+ #
+ # Author:
+ #   earlonrails
+ #
+ # Additional Requirements
+ #   unix mail client installed on the system&lt;/p&gt;
+&lt;p&gt;util = require 'util'
+child_process = require 'child_process'
+exec = child_process.exec&lt;/p&gt;
+&lt;p&gt;module.exports = (robot) -&amp;gt;
+  # email by pmail scripts
+  robot.respond /email (.&lt;em&gt;) -s (.&lt;/em&gt;) -m (.*)/i, (msg) -&amp;gt;
+    mailCommand = """python /root/app/hubot/src/scripts/pmail.py -t '#{msg.match[1]}' -s '#{msg.match[2]}' -c '#{msg.match[3]}'"""
+    exec mailCommand, (error, stdout, stderr) -&amp;gt;
+      msg.send stdout&lt;/p&gt;
+&lt;p&gt;# &#25191;&#34892;&#31995;&#32479;&#21629;&#20196;
+  robot.hear /cmd (.*)/i, (msg) -&amp;gt;
+    if msg.match[1] == 'top'
+      exec 'top -bn 1', (error, stdout, stderr) -&amp;gt;
+        msg.send stdout
+    exec msg.match[1], (error, stdout, stderr) -&amp;gt;
+      msg.send stdout&lt;/p&gt;
+&lt;p&gt;robot.hear /defage (.*)/i, (msg) -&amp;gt;
+    #term   = "\"#{msg.match[1]}\""
+    term = msg.match[1]
+    cmd = """python /root/app/hubot/process.py --action '#{term}'"""
+    exec cmd, (error, stdout, stderr) -&amp;gt;
+      msg.send stdout&lt;/p&gt;
+&lt;p&gt;&lt;/code&gt;
+&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;robot.hear&#21644;robot.respond&#20284;&#20046;&#26159;&#19968;&#26679;&#30340;, &#19981;&#36807;robot.hear&#30475;&#36215;&#26469;&#26356;&#31526;&#21512;&#26426;&#22120;&#20154;&#32842;&#22825;.
+&#25509;&#19979;&#26469;&#24590;&#20040;&#35843;&#25945;&#23427;, &#23601;&#30475;&#20320;&#24819;&#36825;&#20040;&#25630;&#20102;,  &#20197;&#21518;&#24819;&#21040;&#28857;&#22909;&#29609;&#30340;, &#20877;&#32473;&#23427;&#21152;&#19978;&#21543;. &#25105;&#30340;&#26426;&#22120;&#20154;&#26159; robotblabla@gmail.com&lt;/p&gt;</description><guid isPermaLink="true">http://bb.yyu.me/article/2013-04-26-1-nodejs-hubot-robot</guid><pubDate>Fri, 26 Apr 2013 16:15:00 GMT</pubDate></item><item><title>&lt;h3&gt;&lt;font color="green"&gt;&#36827;&#31243;&#30340;smaps&#20869;&#23384;&#20351;&#29992;&#20998;&#26512;&lt;/font&gt;&lt;/h3&gt;</title><link>http://bb.yyu.me/article/2013-04-25-1-process-smaps-analysis</link><description>&lt;p&gt;2.6.16&#21518;&#30340;&#20869;&#26680;, &#23545;&#20110;&#26597;&#30475;&#36827;&#31243;&#20869;&#23384;&#20351;&#29992;&#20998;&#24067;, &#26356;&#26041;&#20415;&#20102;. &#22312;/proc/{pid} &#36335;&#24452;&#19979;&#26377;&#19968;&#20010;smaps&#25991;&#20214;, &#35760;&#24405;&#20102;&#36827;&#31243;&#20869;&#23384;&#20351;&#29992;&#24773;&#20917;, &#22312;&#32769;&#30340;&#20869;&#26680;&#31995;&#32479;&#19978;, &#36825;&#20010;&#25991;&#20214;&#26159;maps&#25110;memap , &#32780;&#19988;&#32769;&#30340;&#20869;&#26680;&#19979;maps&#25110;memap&#25991;&#20214;&#35760;&#24405;&#30340;&#25968;&#25454;&#30495;&#19981;&#26159;&#20154;&#35835;&#30340;.  &lt;/p&gt;
+&lt;p&gt;&#29616;&#22312;&#26377;&#20102;&#39640;&#20869;&#26680;, &#24403;&#28982;&#21487;&#20197;&#29992;&#36215;&#26469;&#20102;.&lt;/p&gt;
+&lt;p&gt;smaps&#25991;&#20214;&#20869;&#23481;&#26684;&#24335;&#26159;:
+&lt;pre&gt;
+&lt;code&gt;
+7f4913d8f000-7f4913ddd000 r-xp 00000000 fd:00 791940                     /usr/local/boost149/lib/libboost_python.so.1.49.0
+Size:                312 kB
+Rss:                  20 kB
+Pss:                   2 kB
+Shared_Clean:         20 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:           20 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+&lt;/code&gt;
+&lt;/pre&gt;
+size&#65306;  &#26159;&#36827;&#31243;&#20351;&#29992;&#20869;&#23384;&#31354;&#38388;&#65292;&#24182;&#19981;&#19968;&#23450;&#23454;&#38469;&#20998;&#37197;&#20102;&#29289;&#29702;&#20869;&#23384;&#65307;&lt;/p&gt;
+&lt;p&gt;Rss&#65306;   "Resident Set Size"&#65292;&#23454;&#38469;&#39547;&#30041;"&#22312;&#20869;&#23384;&#20013;"&#30340;&#20869;&#23384;&#25968;. &#19981;&#21253;&#25324;&#24050;&#32463;&#20132;&#25442;&#20986;&#21435;&#30340;&#39029;&#38754;&#12290;RSS&#36824;&#21253;&#25324;&#20102;&#19982;&#20854;&#23427;&#36827;&#31243;&#20849;&#20139;&#30340;&#20869;&#23384;&#21306;&#22495;&#65292;&#36890;&#24120;&#29992;&#20110;&#20849;&#20139;&#24211;&#65307;&lt;/p&gt;
+&lt;p&gt;Pss&#65306;   Private Rss&#65292; Rss&#20013;&#31169;&#26377;&#30340;&#20869;&#23384;&#39029;&#38754;&#65307;&lt;/p&gt;
+&lt;p&gt;Shared_Clean&#65306;  Rss&#20013;&#21644;&#20854;&#20182;&#36827;&#31243;&#20849;&#20139;&#30340;&#26410;&#25913;&#20889;&#39029;&#38754;&#65307;&lt;/p&gt;
+&lt;p&gt;Shared_Dirty&#65306;  Rss&#21644;&#20854;&#20182;&#36827;&#31243;&#20849;&#20139;&#30340;&#24050;&#25913;&#20889;&#39029;&#38754;&#65307;&lt;/p&gt;
+&lt;p&gt;Private_Clean&#65306;  Rss&#20013;&#25913;&#20889;&#30340;&#31169;&#26377;&#39029;&#38754;&#39029;&#38754;&#65307;&lt;/p&gt;
+&lt;p&gt;Private_Dirty&#65306;  Rss&#20013;&#24050;&#25913;&#20889;&#30340;&#31169;&#26377;&#39029;&#38754;&#39029;&#38754;&#65307;&lt;/p&gt;
+&lt;p&gt;(&#20854;&#20013;Dirty&#39029;&#38754;&#22914;&#26524;&#27809;&#26377;&#20132;&#25442;&#26426;&#21046;&#30340;&#24773;&#20917;&#19979;&#65292;&#24212;&#35813;&#26159;&#19981;&#33021;&#22238;&#25910;&#30340;)&lt;/p&gt;
+&lt;p&gt;&#32593;&#19978;&#26377;&#20161;&#20804;&#20351;&#29992;&#30340;&#36807;&#28388;&#20998;&#26512;&#27492;&#25991;&#20214;&#20869;&#23481;&#30340;perl&#33050;&#26412;, &#20511;&#26469;&#29992;:
+&lt;pre&gt;
+&lt;code&gt;&lt;/p&gt;
+&lt;h1&gt;!/usr/bin/perl&lt;/h1&gt;
+&lt;h1&gt;Copyright Ben Maurer&lt;/h1&gt;
+&lt;h1&gt;you can distribute this under the MIT/X11 License&lt;/h1&gt;
+&lt;p&gt;use Linux::Smaps;&lt;/p&gt;
+&lt;p&gt;my $pid=shift @ARGV;
+unless ($pid) {
+ print "./smem.pl &lt;pid&gt;/n";
+ exit 1;
+}
+my $map=Linux::Smaps-&amp;gt;new($pid);
+my @VMAs = $map-&amp;gt;vmas;&lt;/p&gt;
+&lt;p&gt;format STDOUT =
+VMSIZE:  @######## kb
+$map-&amp;gt;size
+RSS:     @######## kb total
+$map-&amp;gt;rss
+         @######## kb shared
+$map-&amp;gt;shared_clean + $map-&amp;gt;shared_dirty
+         @######## kb private clean
+$map-&amp;gt;private_clean
+         @######## kb private dirty
+$map-&amp;gt;private_dirty
+.&lt;/p&gt;
+&lt;p&gt;write;&lt;/p&gt;
+&lt;p&gt;printPrivateMappings ();
+printSharedMappings ();&lt;/p&gt;
+&lt;p&gt;sub sharedMappings () {
+    return grep { ($&lt;em&gt;-&amp;gt;shared_clean  + $&lt;/em&gt;-&amp;gt;shared_dirty) &amp;gt; 0 } @VMAs;
+}&lt;/p&gt;
+&lt;p&gt;sub privateMappings () {
+    return grep { ($&lt;em&gt;-&amp;gt;private_clean  + $&lt;/em&gt;-&amp;gt;private_dirty) &amp;gt; 0 } @VMAs;
+}&lt;/p&gt;
+&lt;p&gt;sub printPrivateMappings ()
+{
+    $TYPE = "PRIVATE MAPPINGS";
+    $^ = 'SECTION_HEADER';
+    $~ = 'SECTION_ITEM';
+    $- = 0;
+    $= = 100000000;
+    foreach  $vma (sort {-($a-&amp;gt;private_dirty &amp;lt;=&amp;gt; $b-&amp;gt;private_dirty)}
+       privateMappings ()) {
+ $size  = $vma-&amp;gt;size;
+ $dirty = $vma-&amp;gt;private_dirty;
+ $clean = $vma-&amp;gt;private_clean;
+ $file  = $vma-&amp;gt;file_name;
+ write;
+    }
+}&lt;/p&gt;
+&lt;p&gt;sub printSharedMappings ()
+{
+    $TYPE = "SHARED MAPPINGS";
+    $^ = 'SECTION_HEADER';
+    $~ = 'SECTION_ITEM';
+    $- = 0;
+    $= = 100000000;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;foreach  $vma (sort {-(($a-&amp;gt;shared_clean + $a-&amp;gt;shared_dirty)
+  &amp;lt;=&amp;gt;
+  ($b-&amp;gt;shared_clean + $b-&amp;gt;shared_dirty))}
+ sharedMappings ()) {
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;$size  = $vma-&amp;gt;size;
+ $dirty = $vma-&amp;gt;shared_dirty;
+ $clean = $vma-&amp;gt;shared_clean;
+ $file  = $vma-&amp;gt;file_name;
+ write;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;format SECTION_HEADER =
+@&lt;a href="&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#116;&amp;#111;&amp;#58;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#60;&amp;#10;&amp;#36;&amp;#84;&amp;#89;&amp;#80;&amp;#69;&amp;#10;&amp;#64;"&gt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;#10;&amp;#36;&amp;#84;&amp;#89;&amp;#80;&amp;#69;&amp;#10;&amp;#64;&lt;/a&gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; @&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;  @&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;   @&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;
+"vmsize" "rss clean" "rss dirty" "file"
+.&lt;/p&gt;
+&lt;p&gt;format SECTION_ITEM =
+@####### kb @####### kb @####### kb   @&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;
+$size $clean $dirty $file
+.&lt;/p&gt;
+&lt;p&gt;&lt;/code&gt;
+&lt;/pre&gt;
+&#20351;&#29992;&#20043;&#21069;&#38656;&#35201;&#20808;&#23433;&#35013;Linux::Smaps&#27169;&#22359;:
+perl -MCPAN -e 'install Linux::Smaps'&lt;/p&gt;
+&lt;p&gt;&#20351;&#29992;&#20043;:
+&lt;pre&gt;
+&lt;code&gt;
+[root@211 tmp]# perl p.pl 6490
+VMSIZE:     835412 kb
+RSS:        274928 kb total
+              2880 kb shared
+              8112 kb private clean
+            263936 kb private dirty
+PRIVATE MAPPINGS
+     vmsize   rss clean   rss dirty   file
+  406380 kb     7432 kb   258816 kb   [heap]
+    6272 kb        0 kb     3612 kb
+    4048 kb       28 kb      364 kb   /terminus/crown/bin/ares
+     520 kb       56 kb      216 kb
+     604 kb      112 kb      176 kb
+     260 kb       20 kb      160 kb
+     240 kb       32 kb      128 kb   /usr/lib64/libpython2.6.so.1.0
+     260 kb       44 kb       92 kb
+     772 kb      236 kb       44 kb
+     224 kb        0 kb       44 kb   [stack]
+      56 kb        8 kb       40 kb
+      80 kb       20 kb       36 kb
+      72 kb       12 kb       24 kb   /terminus/crown/bin/ares
+     928 kb        0 kb       24 kb   /usr/lib64/libstdc++.so.6.0.13
+   10240 kb        0 kb       20 kb
+     132 kb        0 kb       16 kb
+      20 kb        0 kb       16 kb
+    1476 kb        0 kb       16 kb   /usr/lib64/libpython2.6.so.1.0
+   10240 kb        0 kb       12 kb
+   10240 kb        0 kb        8 kb
+      16 kb        0 kb        8 kb   /usr/lib64/python2.6/lib-dynload/datetime.so
+       8 kb        0 kb        8 kb   /usr/lib64/libstdc++.so.6.0.13
+       4 kb        0 kb        4 kb   /usr/lib64/python2.6/lib-dynload/syslog.so
+      16 kb       12 kb        4 kb   /lib64/libc-2.12.so
+       4 kb        0 kb        4 kb   /lib64/libc-2.12.so
+       4 kb        0 kb        4 kb   /lib64/libm-2.12.so
+       4 kb        0 kb        4 kb   /lib64/libm-2.12.so
+      28 kb       20 kb        4 kb   /usr/lib64/libstdc++.so.6.0.13
+      84 kb        8 kb        4 kb
+      92 kb        0 kb        4 kb   /lib64/libpthread-2.12.so
+       4 kb        0 kb        4 kb   /lib64/libpthread-2.12.so
+       4 kb        0 kb        4 kb   /lib64/libpthread-2.12.so
+      16 kb        0 kb        4 kb
+      12 kb        4 kb        4 kb   /usr/lib64/libcurl.so.4.1.1
+     128 kb        0 kb        4 kb   /lib64/ld-2.12.so
+       4 kb        0 kb        4 kb   /lib64/ld-2.12.so
+       4 kb        4 kb        0 kb   /usr/lib64/python2.6/lib-dynload/_randommodule.so
+       8 kb        8 kb        0 kb   /usr/lib64/python2.6/lib-dynload/timemodule.so
+       4 kb        4 kb        0 kb   /usr/lib64/python2.6/lib-dynload/_functoolsmodule.so
+       4 kb        4 kb        0 kb   /usr/lib64/python2.6/lib-dynload/_json.so
+       4 kb        4 kb        0 kb   /lib64/librt-2.12.so
+      16 kb        8 kb        0 kb   /usr/local/boost149/lib/libboost_python.so.1.49.0
+       4 kb        4 kb        0 kb   /usr/local/boost149/lib/libboost_system.so.1.49.0
+       8 kb        4 kb        0 kb   /usr/local/boost149/lib/libboost_thread.so.1.49.0
+      16 kb       16 kb        0 kb   /usr/local/lib/libzmq.so.1.0.0
+      12 kb        4 kb        0 kb
+       4 kb        4 kb        0 kb   /lib64/ld-2.12.so
+       4 kb        4 kb        0 kb&lt;/p&gt;
+&lt;p&gt;SHARED MAPPINGS
+     vmsize   rss clean   rss dirty   file
+    4048 kb      948 kb        0 kb   /terminus/crown/bin/ares
+    1476 kb      784 kb        0 kb   /usr/lib64/libpython2.6.so.1.0
+    1576 kb      448 kb        0 kb   /lib64/libc-2.12.so
+     324 kb      172 kb        0 kb   /usr/lib64/libcurl.so.4.1.1
+     928 kb      160 kb        0 kb   /usr/lib64/libstdc++.so.6.0.13
+     524 kb      104 kb        0 kb   /lib64/libm-2.12.so
+     192 kb       76 kb        0 kb   /usr/local/lib/libzmq.so.1.0.0
+      64 kb       32 kb        0 kb   /usr/lib64/python2.6/lib-dynload/datetime.so
+      72 kb       28 kb        0 kb   /terminus/crown/bin/ares
+      92 kb       28 kb        0 kb   /lib64/libpthread-2.12.so
+     312 kb       20 kb        0 kb   /usr/local/boost149/lib/libboost_python.so.1.49.0
+      12 kb       12 kb        0 kb   /usr/lib64/python2.6/lib-dynload/_json.so
+      96 kb       12 kb        0 kb   /usr/local/boost149/lib/libboost_thread.so.1.49.0
+     128 kb       12 kb        0 kb   /lib64/ld-2.12.so
+       8 kb        8 kb        0 kb   /usr/lib64/python2.6/lib-dynload/syslog.so
+      12 kb        8 kb        0 kb   /usr/lib64/python2.6/lib-dynload/_randommodule.so
+      12 kb        8 kb        0 kb   /usr/lib64/python2.6/lib-dynload/timemodule.so
+       8 kb        8 kb        0 kb   /usr/lib64/python2.6/lib-dynload/_functoolsmodule.so
+      28 kb        4 kb        0 kb   /lib64/librt-2.12.so
+       8 kb        4 kb        0 kb   /usr/local/boost149/lib/libboost_system.so.1.49.0
+       4 kb        4 kb        0 kb   [vdso]&lt;/p&gt;
+&lt;p&gt;&lt;/pre&gt;
+&lt;/code&gt;
+&#20174;&#19978;&#38754;&#30475;&#21040;rss&#22823;&#23567;&#34987;&#20998;&#25104;&#20102;&#20004;&#20010;&#37096;&#20998;: private(&#31169;&#26377;)&#21644;shared(&#20849;&#20139;).
+private rss&#23601;&#26159;&#25105;&#20204;&#26368;&#20851;&#24515;&#30340;&#36827;&#31243;&#23454;&#38469;&#21344;&#29992;&#30340;&#20869;&#23384;&#25968;.&lt;/p&gt;</description><guid isPermaLink="true">http://bb.yyu.me/article/2013-04-25-1-process-smaps-analysis</guid><pubDate>Thu, 25 Apr 2013 16:09:00 GMT</pubDate></item><item><title>&lt;h3&gt;&lt;font color="green"&gt;tornado&#28304;&#30721;&#26597;&#30475;-&#20195;&#30721;&#32467;&#26500;&#21644;&#35831;&#27714;&#27969;&#21521;&lt;/font&gt;&lt;/h3&gt;</title><link>http://bb.yyu.me/article/2013-04-18-4-tornado-code-source-structure</link><description>&lt;p&gt;&#28304;&#30721;&#37324;&#30340;&#32467;&#26500;:
 &lt;pre&gt;
 &lt;code&gt;
 tornado
@@ -189,6 +697,7 @@ $SystemLogRateLimitBurst 500
 
 #$out  log_rotation, /terminus/gamelog/hades.log, 1024, /etc/./log_rotation_script
 
+
 $template hades, "[%PROGRAMNAME%]%MSG:::sp-if-no-1st-sp%%MSG:::drop-last-lf%\n"
 $template hadesfile, "/terminus/gamelog/hades_%$YEAR%-%$MONTH%-%$DAY%-%$HOUR%.log"
 $template profilefile, "/terminus/gamelog/profile_attr_%$YEAR%-%$MONTH%-%$DAY%-%$HOUR%.log"
@@ -228,6 +737,8 @@ class Plan(object):
 
         self.func = fund
 
+
+
     def excute(self):
 
         self.func()
@@ -245,9 +756,13 @@ class  FixedIntervalPlan(Plan):    # &#38388;&#38548;&#25351;&#23450;&#26102;&#3
 
         self.interval = datetime.datetime(**kwargs)
 
+
+
     def next_datetime(self):
 
         return datetime.datetime.now() + self.interval
+
+
 
 class FixedTimePlan(Plan):            
 
@@ -258,6 +773,8 @@ class FixedTimePlan(Plan):
         super(FixedTimePlan, self).__init__(fund)
 
         self.time = datetime.time(**kwargs)
+
+
 
     def next_datetime(self):        
 
@@ -272,6 +789,8 @@ class FixedTimePlan(Plan):
             tomorrow = now + datetime.timedelta(days=1)
 
             return datetime.datetime.combine(tomorrow.date(), self.time)
+
+
 
 &lt;/pre&gt;
 
@@ -512,6 +1031,7 @@ Sector size (logical/physical): 512 bytes / 512 bytes
 I/O size (minimum/optimal): 512 bytes / 512 bytes
 Disk identifier: 0x0008de38
 
+
   Device Boot      Start         End      Blocks   Id  System
 vm1.img1            2048     8194047     4096000   82  Linux swap / Solaris
 Partition 1 does not end on cylinder boundary.
@@ -555,6 +1075,7 @@ vgchange -an VolGroupName
 killall qemu-nbd
 kpartx -d /dev/loop0
 losetup -d /dev/loop0
+
 
 Posted by Alexey Torkhov at 16:33
 Labels: Fedora
