@@ -239,11 +239,15 @@ class ImportFileHandler(BaseHandler):
         content = article['content']
         return self.finish(content)
    
+class GHandler(BaseHandler):
+    def get(self):
+        return self.render('googled4ec9ff1a19199b5.html')
         
 class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r"/", MainHandler),
+            (r"/googled4ec9ff1a19199b5.html", GHandler),
             (r"/article/(.*)", ArticleHandler),
             (r"/importfile", ImportFileHandler),
             (r"/.*\.xml",RSSHandler),
