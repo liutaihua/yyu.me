@@ -18,6 +18,9 @@ from config.web_config import admin_list
 from common.base_httphandler import BaseHandler
 from common import session
 from common.decorator import login_required
+from common.util import get_mc
+
+mc = get_mc()
 
 
 def SingleFileHandler(file_path, keep_original=False):
@@ -242,10 +245,48 @@ class ImportFileHandler(BaseHandler):
 class GHandler(BaseHandler):
     def get(self):
         return self.render('googled4ec9ff1a19199b5.html')
+
+class NewBlogLikeFeatureHandler(BaseHandler):
+    def get(self, action):
+        shortname = self.get_argument('shortname')
+        identifier = self.get_argument('identifier')
+        name = self.get_argument('name')
+        user = identifier.split(':')[-1]
+        is_liked_key = str("%s@%s" % (user, name))
+        artical_liked_count_key = str(name)
+        self.set_header('Access-Control-Allow-Origin', '*')
+        self.set_header('Access-Control-Allow-Methods', 'POST,GET')
+        if action == 'like_count':
+            like_count = mc.get(artical_liked_count_key) or 0
+            is_user_liked = mc.get(is_liked_key) or False
+            return self.finish({"liked": is_user_liked, "count":like_count,"user": user})
+
+    def post(self, action):
+        shortname = self.get_argument('shortname')
+        identifier = self.get_argument('identifier')
+        name = self.get_argument('name')
+        user = identifier.split(':')[-1]
+        is_liked_key = str("%s@%s" % (user, name))
+        artical_liked_count_key = str(name)
+        self.set_header('Access-Control-Allow-Origin', '*')
+        self.set_header('Access-Control-Allow-Methods', 'POST,GET')
+        if action == 'like':
+            like_count = mc.get(artical_liked_count_key) or 0
+            like_count += 1
+            is_user_liked = mc.get(is_liked_key) or False
+            mc.set(artical_liked_count_key, like_count)
+            return self.finish({"liked": True, "count": like_count, "user": user})
+        elif action == 'unlike':
+            like_count = mc.get(artical_liked_count_key) or 0
+            like_count -= 1
+            is_user_liked = mc.get(is_liked_key) or False
+            mc.set(artical_liked_count_key, like_count)
+            return self.finish({"liked": False, "count": is_user_liked,"user": user})
         
 class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
+            (r"/v1/(.*)", NewBlogLikeFeatureHandler),
             (r"/", MainHandler),
             (r"/googled4ec9ff1a19199b5.html", GHandler),
             (r"/article/(.*)", ArticleHandler),
