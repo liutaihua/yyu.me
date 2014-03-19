@@ -254,7 +254,7 @@ class NewBlogLikeFeatureHandler(BaseHandler):
         user = identifier.split(':')[-1]
         is_liked_key = str("%s@%s" % (user, name))
         artical_liked_count_key = str(name)
-        self.set_header('Access-Control-Allow-Origin', '*')
+        self.set_header('Access-Control-Allow-Origin', 'http://liutaihua.github.io')
         self.set_header('Access-Control-Allow-Methods', 'POST,GET')
         if action == 'like_count':
             like_count = mc.get(artical_liked_count_key) or 0
@@ -273,13 +273,13 @@ class NewBlogLikeFeatureHandler(BaseHandler):
         if action == 'like':
             like_count = mc.get(artical_liked_count_key) or 0
             like_count += 1
-            is_user_liked = mc.get(is_liked_key) or False
+            mc.set(is_liked_key, True)
             mc.set(artical_liked_count_key, like_count)
             return self.finish({"liked": True, "count": like_count, "user": user})
         elif action == 'unlike':
             like_count = mc.get(artical_liked_count_key) or 0
             like_count -= 1
-            is_user_liked = mc.get(is_liked_key) or False
+            mc.delete(artical_liked_count_key)
             mc.set(artical_liked_count_key, like_count)
             return self.finish({"liked": False, "count": is_user_liked,"user": user})
         
